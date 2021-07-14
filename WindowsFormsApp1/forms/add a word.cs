@@ -115,9 +115,45 @@ namespace exam
                         {
                             MessageBox.Show("error copying the media into the date");
                         }
-                        
                     }
-
+                }
+                else
+                {
+                    MessageBox.Show("you need all the txt boxes to be filled");
+                }
+            }
+            else if (cbx_spelling.Checked == true)
+            {
+                if (txt_addword.Text.Length != 0 && txt_addsound.Text.Length != 0 && txt_wrong1.Text.Length != 0 && txt_wrong2.Text.Length != 0 && txt_wrong3.Text.Length != 0)
+                {
+                    bool exist = false;
+                    for (int i = 0; i < spellingwords.Count; i++)
+                    {
+                        if (spellingwords[i].word == txt_addword.Text)
+                        {
+                            MessageBox.Show("the word you are trying to enter allready exist in the data base");
+                            exist = true;
+                            break;
+                        }
+                    }
+                    if (exist == false)
+                    {
+                        try
+                        {
+                            File.Copy(txt_addsound.Text, @"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\VOICE\" + txt_addword.Text + ".wav");//צריך לפתור את הבעיה שהבודק אין לו את אותן תיקיות כמו במחשב שלי
+                            int index = spellingwords.Count + 1;
+                            WordWSpelling nw = new WordWSpelling(txt_wrong1.Text, txt_wrong2.Text, txt_wrong3.Text, txt_addword.Text, spellingwords.Count + 1, txt_addword.Text + ".wav");
+                            string st = index + ";" + txt_addword.Text + ";" + txt_addword.Text + ".wav;" + txt_wrong1.Text + ";" + txt_wrong2.Text + ";" + txt_wrong3.Text;//יצירת משפט לכתוב לתוך הקובץ
+                            spellingwords.Add(nw);//  העברת הנתונים שהמתמש רשם לאובייקט והכנסת האובייקט החדש לתוך רשימת המילים לאיות 
+                            StreamWriter newword = new StreamWriter(@"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\DATA\SpellWords.txt", true);
+                            newword.WriteLine(st);
+                            newword.Close();
+                        }
+                        catch (IOException copyError)
+                        {
+                            MessageBox.Show("error copying the media into the date");
+                        }
+                    }
                 }
                 else
                 {
