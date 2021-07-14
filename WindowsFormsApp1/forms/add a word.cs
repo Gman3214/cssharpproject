@@ -107,9 +107,8 @@ namespace exam
                             WordWSpelling nw = new WordWSpelling(txt_wrong1.Text, txt_wrong2.Text, txt_wrong3.Text, txt_addword.Text, spellingwords.Count + 1, txt_addword.Text + ".wav");
                             string st = index + ";" + txt_addword.Text + ";" + txt_addword.Text + ".wav;" + txt_wrong1.Text + ";" + txt_wrong2.Text + ";" + txt_wrong3.Text;//יצירת משפט לכתוב לתוך הקובץ
                             spellingwords.Add(nw);//  העברת הנתונים שהמתמש רשם לאובייקט והכנסת האובייקט החדש לתוך רשימת המילים לאיות 
-                            StreamWriter newword = new StreamWriter(@"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\DATA\SpellWords.txt", true);
-                            newword.WriteLine(st);
-                            newword.Close();
+                            using (StreamWriter newword = new StreamWriter(@"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\DATA\SpellWords.txt", true))
+                            { newword.WriteLine("\r\n"+st); }
                         }
                         catch (IOException copyError)
                         {
@@ -122,14 +121,14 @@ namespace exam
                     MessageBox.Show("you need all the txt boxes to be filled");
                 }
             }
-            else if (cbx_spelling.Checked == true)
+            else if (cbx_games.Checked  == true)
             {
-                if (txt_addword.Text.Length != 0 && txt_addsound.Text.Length != 0 && txt_wrong1.Text.Length != 0 && txt_wrong2.Text.Length != 0 && txt_wrong3.Text.Length != 0)
+                if (txt_addword.Text.Length != 0 && txt_addsound.Text.Length != 0 && txt_addword.Text.Length!=0)
                 {
                     bool exist = false;
-                    for (int i = 0; i < spellingwords.Count; i++)
+                    for (int i = 0; i < gamewords.Count; i++)
                     {
-                        if (spellingwords[i].word == txt_addword.Text)
+                        if (gamewords[i].word == txt_addword.Text)
                         {
                             MessageBox.Show("the word you are trying to enter allready exist in the data base");
                             exist = true;
@@ -141,13 +140,21 @@ namespace exam
                         try
                         {
                             File.Copy(txt_addsound.Text, @"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\VOICE\" + txt_addword.Text + ".wav");//צריך לפתור את הבעיה שהבודק אין לו את אותן תיקיות כמו במחשב שלי
-                            int index = spellingwords.Count + 1;
-                            WordWSpelling nw = new WordWSpelling(txt_wrong1.Text, txt_wrong2.Text, txt_wrong3.Text, txt_addword.Text, spellingwords.Count + 1, txt_addword.Text + ".wav");
-                            string st = index + ";" + txt_addword.Text + ";" + txt_addword.Text + ".wav;" + txt_wrong1.Text + ";" + txt_wrong2.Text + ";" + txt_wrong3.Text;//יצירת משפט לכתוב לתוך הקובץ
-                            spellingwords.Add(nw);//  העברת הנתונים שהמתמש רשם לאובייקט והכנסת האובייקט החדש לתוך רשימת המילים לאיות 
-                            StreamWriter newword = new StreamWriter(@"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\DATA\SpellWords.txt", true);
-                            newword.WriteLine(st);
-                            newword.Close();
+                            File.Copy(txt_addpic.Text, @"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\DIMAGES\" + txt_addword.Text + ".jpg");//צריך לפתור את הבעיה שהבודק אין לו את אותן תיקיות כמו במחשב שלי
+                            int index = gamewords.Count + 1, i = 0;
+                            char[] letters = new char[txt_addword.Text.Length];
+                            foreach (char leter in txt_addword.Text)
+                            {
+                                letters[i] = leter;
+                                i++;
+                            }
+                            WordWImage nw = new WordWImage(txt_addword.Text + ".jpg", txt_addword.Text.Length, letters, txt_addword.Text, spellingwords.Count + 1, txt_addword.Text + ".wav");
+                            string tmp = "";
+                            foreach (char letter in letters) { tmp = tmp + ";" + letter; };
+                            string st = index + ";" + txt_addword.Text + ";" + txt_addword.Text + ".jpg;" + txt_addword.Text + ".wav;" + tmp;//יצירת משפט לכתוב לתוך הקובץ
+                            gamewords.Add(nw);//  העברת הנתונים שהמתמש רשם לאובייקט והכנסת האובייקט החדש לתוך רשימת המילים לאיות 
+                            using (StreamWriter newword = new StreamWriter(@"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\DATA\wordImageData.txt", true))
+                            {newword.WriteLine("\r\n"+st);} 
                         }
                         catch (IOException copyError)
                         {

@@ -49,10 +49,11 @@ namespace exam
                 btn_games.Enabled=true;
                 btn_spelling.Enabled = true;
                 btn_add.Enabled = true;
-                creategameslist();
-                createspellinglist();
+                if(gamewords.Count==0)
+                    creategameslist();
+                if (spellingwords.Count == 0)
+                    createspellinglist();
             }
-           
         }
         bool checkemail(string mail) // בודק שהמייל שהוכנס תקין 
         {
@@ -88,7 +89,7 @@ namespace exam
 
         private void btn_games_Click(object sender, EventArgs e)
         {
-            openform(new frm_games ());// שולח לפונקציית פתח פורמ את הפורמ של המשחקים
+            openform(new frm_games (gamewords));// שולח לפונקציית פתח פורמ את הפורמ של המשחקים
         }
         private Form activeform = null;
         private void openform (Form child)// פותחת את הפורמ שנשלח לה בקריאה לפונקציה
@@ -102,7 +103,9 @@ namespace exam
             pnl_childfrm.Controls.Add(child);
             pnl_childfrm.Tag = child;
             child.BringToFront();
-            child.Show(); 
+            child.Show();
+            pix_exit.Show();
+            lbl_out.Show();
         }
 
         private void btn_spelling_Click(object sender, EventArgs e)
@@ -153,6 +156,15 @@ namespace exam
                 gamewords.Add(word);
             }
             game.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            activeform.Close();
+            pix_exit.Hide();
+            txt_email.Clear();
+            lbl_hello.Hide();
+            lbl_out.Hide();
         }
     }
 }

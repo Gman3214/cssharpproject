@@ -12,12 +12,20 @@ namespace exam
 {
     public partial class frm_games : Form
     {
-        public frm_games()
+        List<WordWImage> gamewords = new List<WordWImage>();
+
+        public frm_games(List<WordWImage> gamewords)
         {
+            this.gamewords = gamewords;
             InitializeComponent();
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pix_game1_Click(object sender, EventArgs e)
         {
 
         }
