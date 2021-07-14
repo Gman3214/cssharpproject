@@ -29,17 +29,19 @@ namespace exam
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Form3
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 608);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form3";
-            this.Text = "Form3";
-            this.ResumeLayout(false);
+			this.SuspendLayout();
+			// 
+			// Form3
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(802, 494);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Name = "Form3";
+			this.Text = "Form3";
+			this.Load += new System.EventHandler(this.Form3_Load);
+			this.ResumeLayout(false);
 
         }
 

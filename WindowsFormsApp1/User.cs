@@ -14,6 +14,12 @@ namespace exam
         public string username;
         public int genralscore;
         
+        public User()
+		{
+            mail = null;
+            username = null;
+            genralscore = 0;
+		}
         public User (string mail)
         {
             this.mail = mail;

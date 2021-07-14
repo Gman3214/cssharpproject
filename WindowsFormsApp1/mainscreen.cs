@@ -17,6 +17,7 @@ namespace exam
          List<WordWSpelling> spellingwords = new List<WordWSpelling>();
          List<WordWImage> gamewords = new List<WordWImage>();
          Dictionary<string, User> users = new Dictionary<string, User>();
+        User player = new User();
         public MainScreen()
         {
             InitializeComponent();
@@ -39,9 +40,10 @@ namespace exam
             else
             {
                 User person = checkmailindatabase(txt_email.Text);// קריאה למתודה שבודקת אם המייל כבר קיים במערכת או לא. המתודה מחזירה לנו את המשתמש.
-                //במידה והמשתמש היה קיים במערכת, היא מאתרת איזה משתמש זה ומחזירה לנו את ה user שלו
-                // במידה והמשתמש לא היה קיים מעולם במערכת, המתודה כבר הוסיפה אותו למערכת ומחזירה לנו את המשתמש שהיא יצרה עבור המייל שלו 
-                // הערה : לא נדרש מאיתנו להודיע למשתמש אם היה קיים כבר במערכת או שהוא חדש. ולכן לא צריך ליצור הודעה על כך עבור המשתמש
+                                                                  //במידה והמשתמש היה קיים במערכת, היא מאתרת איזה משתמש זה ומחזירה לנו את ה user שלו
+                                                                  // במידה והמשתמש לא היה קיים מעולם במערכת, המתודה כבר הוסיפה אותו למערכת ומחזירה לנו את המשתמש שהיא יצרה עבור המייל שלו 
+                                                                  // הערה : לא נדרש מאיתנו להודיע למשתמש אם היה קיים כבר במערכת או שהוא חדש. ולכן לא צריך ליצור הודעה על כך עבור המשתמש
+                player = person;
                 lbl_hello.Text = "Hello "+person.username;
                 lbl_hello.Show();
                 btn_games.Enabled=true;
@@ -53,11 +55,9 @@ namespace exam
                     createspellinglist();
             }
         }
-
-
         bool checkemail(string mail) // בודק שהמייל שהוכנס תקין 
         {
-            int checksh = 0, checkpoint = 0, checkspace = 0;
+            int checksh = 0;
             foreach (char value in mail)
             {
                 if (value == ' ')
@@ -110,7 +110,8 @@ namespace exam
 
         private void btn_spelling_Click(object sender, EventArgs e)
         {
-            openform(new frm_spelling ());
+            
+            openform(new frm_spelling (spellingwords,player));
         }
 
         private void btn_add_Click(object sender, EventArgs e)
