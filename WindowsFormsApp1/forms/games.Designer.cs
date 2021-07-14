@@ -93,6 +93,7 @@ namespace exam
             this.pix_game4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pix_game4.TabIndex = 11;
             this.pix_game4.TabStop = false;
+            this.pix_game4.Click += new System.EventHandler(this.pix_game4_Click);
             // 
             // lbl_game4
             // 
@@ -174,6 +175,7 @@ namespace exam
             this.pix_game3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pix_game3.TabIndex = 5;
             this.pix_game3.TabStop = false;
+            this.pix_game3.Click += new System.EventHandler(this.pix_game3_Click);
             // 
             // pix_game2
             // 
@@ -186,12 +188,13 @@ namespace exam
             this.pix_game2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pix_game2.TabIndex = 4;
             this.pix_game2.TabStop = false;
+            this.pix_game2.Click += new System.EventHandler(this.pix_game2_Click);
             // 
             // pix_back
             // 
             this.pix_back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pix_back.Image = ((System.Drawing.Image)(resources.GetObject("pix_back.Image")));
-            this.pix_back.Location = new System.Drawing.Point(-2, 2);
+            this.pix_back.Location = new System.Drawing.Point(2, -2);
             this.pix_back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pix_back.Name = "pix_back";
             this.pix_back.Size = new System.Drawing.Size(1138, 607);
