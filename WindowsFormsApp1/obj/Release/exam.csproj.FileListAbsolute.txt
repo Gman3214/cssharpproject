@@ -1,0 +1,9 @@
+C:\Users\almog\source\repos\WindowsFormsApp1\bin\Release\exam.exe.config
+C:\Users\almog\source\repos\WindowsFormsApp1\bin\Release\exam.exe
+C:\Users\almog\source\repos\WindowsFormsApp1\bin\Release\exam.pdb
+C:\Users\almog\source\repos\WindowsFormsApp1\obj\Release\WindowsFormsApp1.Form1.resources
+C:\Users\almog\source\repos\WindowsFormsApp1\obj\Release\exam.Properties.Resources.resources
+C:\Users\almog\source\repos\WindowsFormsApp1\obj\Release\exam.csproj.GenerateResource.cache
+C:\Users\almog\source\repos\WindowsFormsApp1\obj\Release\exam.csproj.CoreCompileInputs.cache
+C:\Users\almog\source\repos\WindowsFormsApp1\obj\Release\exam.exe
+C:\Users\almog\source\repos\WindowsFormsApp1\obj\Release\exam.pdb
