@@ -227,6 +227,7 @@ namespace exam
 			this.btn_rtn.Text = "RETURN TO HOME SCREEN";
 			this.btn_rtn.UseVisualStyleBackColor = true;
 			this.btn_rtn.Visible = false;
+			this.btn_rtn.Click += new System.EventHandler(this.btn_rtn_Click);
 			// 
 			// gametwo
 			// 

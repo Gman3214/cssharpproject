@@ -46,7 +46,6 @@ namespace exam
             lbl_timtitle.Visible = true;
             counter++;
             show_pic();
-            //pic_slc.ImageLocation = @"DIMAGES\" + gamewords[index].wordimg;//תמונה ראשונה מופיעה למשתמש. 
 
         }
             
@@ -65,8 +64,6 @@ namespace exam
         int time = 5;
 		private void tim_ans_Tick(object sender, EventArgs e)//אירועי טיימר  
 		{
-
-
 			lbl_exp.Visible = false; lbl_right.Visible = false;
 			if (index <= 2)
 			{
@@ -86,8 +83,6 @@ namespace exam
 				btn_chkans.Visible = false; btn_chkans.Enabled = false; txt_ans.Visible = false;
 				btn_rtn.Visible = true;
 			}
-
-
 		}
 		
 		private void tim_count_Tick(object sender, EventArgs e)//אירועי טיימר משני 
@@ -127,6 +122,11 @@ namespace exam
 		private void txt_ans_TextChanged(object sender, EventArgs e)
 		{
             btn_chkans.Enabled = true;
+		}
+
+		private void btn_rtn_Click(object sender, EventArgs e)
+		{
+            this.Close();
 		}
 	}
 }
