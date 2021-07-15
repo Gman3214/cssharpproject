@@ -29,18 +29,19 @@ namespace exam
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // gametwo
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 607);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "gametwo";
-            this.Text = "Form6";
-            this.ResumeLayout(false);
+			this.SuspendLayout();
+			// 
+			// gametwo
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(1138, 607);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Margin = new System.Windows.Forms.Padding(2);
+			this.Name = "gametwo";
+			this.Text = "Form6";
+			this.Load += new System.EventHandler(this.gametwo_Load);
+			this.ResumeLayout(false);
 
         }
 
