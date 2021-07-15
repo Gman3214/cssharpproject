@@ -13,18 +13,20 @@ namespace exam
 {
     public partial class frm_games : Form
     {
-        public List<WordWImage> gamewords = new List<WordWImage>();
+        Label scorelbl = new Label();
+        public List<WordWImage> gamewords = new List<WordWImage>();//כל המילים ברשימה
         User player = new User();
         int points = 0;
         static Random rnd = new Random();
-        WordWImage[] randomwordsgame = new WordWImage[3];
+        WordWImage[] randomwordsgame = new WordWImage[3];//רשימה עבור כל משחק של שלוש מילים רנדומליות
         int index = 0;
 
-        public frm_games(List<WordWImage> gamewords, User player)
+        public frm_games(List<WordWImage> gamewords, User player, Label lblscore)
         {
             this.player = player;
             this.gamewords = gamewords;
             InitializeComponent();
+            this.scorelbl = lblscore;
         }
 
         public int score
@@ -48,13 +50,15 @@ namespace exam
 
         private void pix_game3_Click(object sender, EventArgs e)
         {
-            gametri game3 = new gametri(this);
+            buildrandomarr();
+            gametri game3 = new gametri(this, player, randomwordsgame);
             game3.Show();
         }
 
         private void pix_game4_Click(object sender, EventArgs e)
         {
-            gamefour game4 = new gamefour(this);
+            buildrandomarr();
+            gamefour game4 = new gamefour(this,player, randomwordsgame, gamewords);
             game4.Show();
         }
 
@@ -120,6 +124,7 @@ namespace exam
                     MessageBox.Show(copyError.Message);
                 }
             }
+            scorelbl.Text = "score:" + player.genralscore;
             this.Close();
         }
     }

@@ -53,6 +53,7 @@ namespace exam
 			// 
 			// lbl_title
 			// 
+			this.lbl_title.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lbl_title.AutoSize = true;
 			this.lbl_title.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_title.ForeColor = System.Drawing.SystemColors.Control;
@@ -64,6 +65,7 @@ namespace exam
 			// 
 			// lbl_exp
 			// 
+			this.lbl_exp.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lbl_exp.AutoSize = true;
 			this.lbl_exp.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_exp.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -75,6 +77,7 @@ namespace exam
 			// 
 			// btn_str
 			// 
+			this.btn_str.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btn_str.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btn_str.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btn_str.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -88,6 +91,7 @@ namespace exam
 			// 
 			// pic_slc
 			// 
+			this.pic_slc.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.pic_slc.Location = new System.Drawing.Point(305, 126);
 			this.pic_slc.Name = "pic_slc";
 			this.pic_slc.Size = new System.Drawing.Size(291, 269);
@@ -98,6 +102,7 @@ namespace exam
 			// 
 			// txt_ans
 			// 
+			this.txt_ans.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.txt_ans.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
 			this.txt_ans.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txt_ans.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -110,6 +115,7 @@ namespace exam
 			// 
 			// lbl_dir
 			// 
+			this.lbl_dir.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lbl_dir.AutoSize = true;
 			this.lbl_dir.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_dir.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -132,6 +138,7 @@ namespace exam
 			// 
 			// lbl_showtime
 			// 
+			this.lbl_showtime.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lbl_showtime.AutoSize = true;
 			this.lbl_showtime.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_showtime.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -143,6 +150,7 @@ namespace exam
 			// 
 			// lbl_timtitle
 			// 
+			this.lbl_timtitle.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lbl_timtitle.AutoSize = true;
 			this.lbl_timtitle.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_timtitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -155,6 +163,7 @@ namespace exam
 			// 
 			// btn_chkans
 			// 
+			this.btn_chkans.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btn_chkans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btn_chkans.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btn_chkans.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -169,6 +178,7 @@ namespace exam
 			// 
 			// lbl_rightans
 			// 
+			this.lbl_rightans.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lbl_rightans.AutoSize = true;
 			this.lbl_rightans.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_rightans.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -180,6 +190,7 @@ namespace exam
 			// 
 			// lbl_right
 			// 
+			this.lbl_right.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lbl_right.AutoSize = true;
 			this.lbl_right.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_right.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -193,6 +204,7 @@ namespace exam
 			// 
 			// pic_score
 			// 
+			this.pic_score.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.pic_score.Image = ((System.Drawing.Image)(resources.GetObject("pic_score.Image")));
 			this.pic_score.Location = new System.Drawing.Point(760, 241);
 			this.pic_score.Name = "pic_score";
@@ -204,6 +216,7 @@ namespace exam
 			// 
 			// lbl_score
 			// 
+			this.lbl_score.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.lbl_score.AutoSize = true;
 			this.lbl_score.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_score.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -217,6 +230,7 @@ namespace exam
 			// 
 			// btn_rtn
 			// 
+			this.btn_rtn.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.btn_rtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btn_rtn.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btn_rtn.ForeColor = System.Drawing.SystemColors.ButtonFace;

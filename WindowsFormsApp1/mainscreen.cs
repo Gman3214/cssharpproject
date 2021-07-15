@@ -31,7 +31,6 @@ namespace exam
         private void btn_submitmail_Click(object sender, EventArgs e)// הכנסת המייל שהמשתמש רשם
         {
             bool check = false;
-
             check = checkemail(txt_email.Text);
             if (check == false)
             {
@@ -45,7 +44,7 @@ namespace exam
                                                                   // הערה : לא נדרש מאיתנו להודיע למשתמש אם היה קיים כבר במערכת או שהוא חדש. ולכן לא צריך ליצור הודעה על כך עבור המשתמש
                 
                 player = person;
-                lbl_hello.Text = "Hello "+person.username;
+                lbl_hello.Text = "Hello "+person.username+"\nNice to see you";
                 lbl_hello.Show();
                 btn_games.Enabled=true;
                 btn_spelling.Enabled = true;
@@ -54,7 +53,12 @@ namespace exam
                     creategameslist();
                 if (spellingwords.Count == 0)
                     createspellinglist();
+                lblname_.Visible = true; lblname_.Text = player.username; lblscore_.Visible = true;
+                lblscore_.Text = "score:" + player.genralscore;
+                txt_email.Visible = false; lbl_mail.Visible = false;
+                pic_user.Visible = true;btn_submitmail.Visible = false;
             }
+
         }
         bool checkemail(string mail) // בודק שהמייל שהוכנס תקין 
         {
@@ -90,7 +94,7 @@ namespace exam
 
         private void btn_games_Click(object sender, EventArgs e)
         {
-            openform(new frm_games (gamewords, player));// שולח לפונקציית פתח פורמ את הפורמ של המשחקים
+            openform(new frm_games (gamewords, player,lblscore_));// שולח לפונקציית פתח פורמ את הפורמ של המשחקים
         }
         private Form activeform = null;
         private void openform (Form child)// פותחת את הפורמ שנשלח לה בקריאה לפונקציה
@@ -105,8 +109,7 @@ namespace exam
             pnl_childfrm.Tag = child;
             child.BringToFront();
             child.Show();
-            pix_exit.Show();
-            lbl_out.Show();
+            
         }
 
         private void btn_spelling_Click(object sender, EventArgs e)
@@ -159,13 +162,5 @@ namespace exam
             game.Close();
         }
 
-        private void pix_exit_Click(object sender, EventArgs e)
-        {
-            activeform.Close();
-            pix_exit.Hide();
-            txt_email.Clear();
-            lbl_hello.Hide();
-            lbl_out.Hide();
-        }
     }
 }

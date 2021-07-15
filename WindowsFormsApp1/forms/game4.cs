@@ -13,7 +13,7 @@ namespace exam
     public partial class gamefour : Form
     {
         private frm_games mainform = null;
-        public gamefour(Form callingForm)
+        public gamefour(Form callingForm, WordWImage[] gamewords, User player)
         {
             mainform = callingForm as frm_games;
             InitializeComponent();

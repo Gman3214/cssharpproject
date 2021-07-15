@@ -12,8 +12,8 @@ namespace exam
 {
     public partial class gametwo : Form
     {
-
-        private frm_games mainform = null;
+        
+        private frm_games mainform = null;int points = 0;
         WordWImage[] gamewords = new WordWImage[3];
         User player = new User();
         int counter = 0; int index = -1; int sec = 5;// קואונטר עבור הסבב שלנו במשחק(לטיימר). אינדקס עבור המיקום שלנובמערך המילים. 
@@ -24,7 +24,6 @@ namespace exam
             InitializeComponent();
             this.gamewords = gamewords;
             this.player = player;
-
         }
 
         private void gametwo_Load(object sender, EventArgs e)
@@ -100,22 +99,22 @@ namespace exam
            if(txt_ans.Text == gamewords[index].word)//כשהממשתמש צודק
 			{
                 pic_slc.ImageLocation = @"ICONS\" + "amazing.png";
-                player.genralscore = player.genralscore + 10;
-               
+                points=points+ 10;
+                player.chkmypast(gamewords[index]);
                 lbl_exp.Visible = true;
                 lbl_exp.Text = "Great job!";
             }
             else if(txt_ans.Text!= gamewords[index].word || txt_ans.Text == null)// כשהמשתמש טועה
 			{
                pic_slc.ImageLocation = @"ICONS\" + "fail.png";
-                player.genralscore = player.genralscore - 5;
+                points = points -5;
                 lbl_exp.Visible = true;
                 lbl_exp.Text = " Sometimes we fail,\nMaybe next time we will succeed ";
                 lbl_right.Visible = true; 
                 lbl_right.Text = "The right word is:\n" + gamewords[index].word;
-                player.wrongamewords.Add(gamewords[index].wordid);// הוספת מילה שהיא טעות למערך המילים של טעויות משתמש
+                player.updatemypast(gamewords[index]);// הוספת מילה שהיא טעות למערך המילים של טעויות משתמש
             }
-            lbl_score.Visible = true; lbl_score.Text = "SCORE\n" + player.genralscore.ToString();
+            lbl_score.Visible = true; lbl_score.Text = "SCORE\n" + points;
             pic_score.Visible = true;
         }
 
@@ -126,6 +125,7 @@ namespace exam
 
 		private void btn_rtn_Click(object sender, EventArgs e)
 		{
+            player.scoreupdate(points);
             this.Close();
 		}
 	}

@@ -13,7 +13,7 @@ namespace exam
     public partial class gametri : Form
     {
         private frm_games mainform = null;
-        public gametri(Form callingForm)
+        public gametri(Form callingForm ,WordWImage[] gamewords, User player)
         {
             mainform = callingForm as frm_games;
             InitializeComponent();
