@@ -13,44 +13,38 @@ namespace exam
     public partial class frm_games : Form
     {
         List<WordWImage> gamewords = new List<WordWImage>();
+        User player = new User();
+        int points = 0;
 
-        public frm_games(List<WordWImage> gamewords)
+        public frm_games(List<WordWImage> gamewords,User player)
         {
+            this.player = player;
             this.gamewords = gamewords;
             InitializeComponent();
         }
-        private Form activeform = null;
-        private void opengame(Form child)// פותחת את משחק שנשלח לה בקריאה לפונקציה
+        public int score
         {
-            if (activeform != null)
-                activeform.Close();
-            activeform = child;
-            child.TopLevel = false;
-            child.FormBorderStyle = FormBorderStyle.None;
-            child.Dock = DockStyle.Fill;
-            pnl_gamescreen.Controls.Add(child);
-            pnl_gamescreen.Tag = child;
-            child.BringToFront();
-            child.Show();
+            get { return points; }
+            set { points = points+value; }
         }
-        private void pix_game1_Click(object sender, EventArgs e)
+        private void pix_game1_Click_1(object sender, EventArgs e)
         {
-            //opengame(new frm_spelling());
+            gameone game1 = new gameone(this);
         }
 
         private void pix_game2_Click(object sender, EventArgs e)
         {
-            //opengame(new frm_spelling());
+
         }
 
         private void pix_game3_Click(object sender, EventArgs e)
         {
-            //opengame(new frm_spelling());
+
         }
 
         private void pix_game4_Click(object sender, EventArgs e)
         {
-            //opengame(new frm_spelling());
+
         }
     }
 }

@@ -89,7 +89,7 @@ namespace exam
 
         private void btn_games_Click(object sender, EventArgs e)
         {
-            openform(new frm_games (gamewords));// שולח לפונקציית פתח פורמ את הפורמ של המשחקים
+            openform(new frm_games (gamewords, player));// שולח לפונקציית פתח פורמ את הפורמ של המשחקים
         }
         private Form activeform = null;
         private void openform (Form child)// פותחת את הפורמ שנשלח לה בקריאה לפונקציה

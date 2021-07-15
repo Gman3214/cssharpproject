@@ -30,7 +30,6 @@ namespace exam
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_games));
-            this.pnl_gamescreen = new System.Windows.Forms.Panel();
             this.lbl_title = new System.Windows.Forms.Label();
             this.pix_game4 = new System.Windows.Forms.PictureBox();
             this.lbl_game4 = new System.Windows.Forms.Label();
@@ -41,7 +40,6 @@ namespace exam
             this.pix_game3 = new System.Windows.Forms.PictureBox();
             this.pix_game2 = new System.Windows.Forms.PictureBox();
             this.pix_back = new System.Windows.Forms.PictureBox();
-            this.pnl_gamescreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pix_game4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pix_game1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pix_game3)).BeginInit();
@@ -49,36 +47,17 @@ namespace exam
             ((System.ComponentModel.ISupportInitialize)(this.pix_back)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnl_gamescreen
-            // 
-            this.pnl_gamescreen.Controls.Add(this.lbl_title);
-            this.pnl_gamescreen.Controls.Add(this.pix_game4);
-            this.pnl_gamescreen.Controls.Add(this.lbl_game4);
-            this.pnl_gamescreen.Controls.Add(this.lbl_game2);
-            this.pnl_gamescreen.Controls.Add(this.lbl_game3);
-            this.pnl_gamescreen.Controls.Add(this.lbl_game1);
-            this.pnl_gamescreen.Controls.Add(this.pix_game1);
-            this.pnl_gamescreen.Controls.Add(this.pix_game3);
-            this.pnl_gamescreen.Controls.Add(this.pix_game2);
-            this.pnl_gamescreen.Controls.Add(this.pix_back);
-            this.pnl_gamescreen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_gamescreen.Location = new System.Drawing.Point(0, 0);
-            this.pnl_gamescreen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pnl_gamescreen.Name = "pnl_gamescreen";
-            this.pnl_gamescreen.Size = new System.Drawing.Size(1138, 607);
-            this.pnl_gamescreen.TabIndex = 1;
-            // 
             // lbl_title
             // 
             this.lbl_title.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("ROG Fonts", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_title.ForeColor = System.Drawing.Color.White;
-            this.lbl_title.Location = new System.Drawing.Point(262, 78);
+            this.lbl_title.Location = new System.Drawing.Point(252, 34);
             this.lbl_title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(611, 48);
-            this.lbl_title.TabIndex = 12;
+            this.lbl_title.TabIndex = 22;
             this.lbl_title.Text = "SELECT A GAME MODE!";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -86,12 +65,12 @@ namespace exam
             // 
             this.pix_game4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pix_game4.Image = ((System.Drawing.Image)(resources.GetObject("pix_game4.Image")));
-            this.pix_game4.Location = new System.Drawing.Point(796, 339);
-            this.pix_game4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pix_game4.Location = new System.Drawing.Point(786, 295);
+            this.pix_game4.Margin = new System.Windows.Forms.Padding(2);
             this.pix_game4.Name = "pix_game4";
             this.pix_game4.Size = new System.Drawing.Size(148, 139);
             this.pix_game4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pix_game4.TabIndex = 11;
+            this.pix_game4.TabIndex = 21;
             this.pix_game4.TabStop = false;
             this.pix_game4.Click += new System.EventHandler(this.pix_game4_Click);
             // 
@@ -101,11 +80,11 @@ namespace exam
             this.lbl_game4.AutoSize = true;
             this.lbl_game4.Font = new System.Drawing.Font("ROG Fonts", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_game4.ForeColor = System.Drawing.Color.White;
-            this.lbl_game4.Location = new System.Drawing.Point(750, 489);
+            this.lbl_game4.Location = new System.Drawing.Point(740, 445);
             this.lbl_game4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_game4.Name = "lbl_game4";
             this.lbl_game4.Size = new System.Drawing.Size(242, 29);
-            this.lbl_game4.TabIndex = 10;
+            this.lbl_game4.TabIndex = 20;
             this.lbl_game4.Text = "place holder";
             this.lbl_game4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -115,11 +94,11 @@ namespace exam
             this.lbl_game2.AutoSize = true;
             this.lbl_game2.Font = new System.Drawing.Font("ROG Fonts", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_game2.ForeColor = System.Drawing.Color.White;
-            this.lbl_game2.Location = new System.Drawing.Point(750, 297);
+            this.lbl_game2.Location = new System.Drawing.Point(740, 253);
             this.lbl_game2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_game2.Name = "lbl_game2";
             this.lbl_game2.Size = new System.Drawing.Size(242, 29);
-            this.lbl_game2.TabIndex = 9;
+            this.lbl_game2.TabIndex = 19;
             this.lbl_game2.Text = "place holder";
             this.lbl_game2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -129,11 +108,11 @@ namespace exam
             this.lbl_game3.AutoSize = true;
             this.lbl_game3.Font = new System.Drawing.Font("ROG Fonts", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_game3.ForeColor = System.Drawing.Color.White;
-            this.lbl_game3.Location = new System.Drawing.Point(158, 489);
+            this.lbl_game3.Location = new System.Drawing.Point(148, 445);
             this.lbl_game3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_game3.Name = "lbl_game3";
             this.lbl_game3.Size = new System.Drawing.Size(242, 29);
-            this.lbl_game3.TabIndex = 8;
+            this.lbl_game3.TabIndex = 18;
             this.lbl_game3.Text = "place holder";
             this.lbl_game3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -143,11 +122,11 @@ namespace exam
             this.lbl_game1.AutoSize = true;
             this.lbl_game1.Font = new System.Drawing.Font("ROG Fonts", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_game1.ForeColor = System.Drawing.Color.White;
-            this.lbl_game1.Location = new System.Drawing.Point(158, 297);
+            this.lbl_game1.Location = new System.Drawing.Point(148, 253);
             this.lbl_game1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_game1.Name = "lbl_game1";
             this.lbl_game1.Size = new System.Drawing.Size(242, 29);
-            this.lbl_game1.TabIndex = 7;
+            this.lbl_game1.TabIndex = 17;
             this.lbl_game1.Text = "place holder";
             this.lbl_game1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -155,25 +134,25 @@ namespace exam
             // 
             this.pix_game1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pix_game1.Image = ((System.Drawing.Image)(resources.GetObject("pix_game1.Image")));
-            this.pix_game1.Location = new System.Drawing.Point(204, 146);
-            this.pix_game1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pix_game1.Location = new System.Drawing.Point(194, 102);
+            this.pix_game1.Margin = new System.Windows.Forms.Padding(2);
             this.pix_game1.Name = "pix_game1";
             this.pix_game1.Size = new System.Drawing.Size(148, 139);
             this.pix_game1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pix_game1.TabIndex = 6;
+            this.pix_game1.TabIndex = 16;
             this.pix_game1.TabStop = false;
-            this.pix_game1.Click += new System.EventHandler(this.pix_game1_Click);
+            this.pix_game1.Click += new System.EventHandler(this.pix_game1_Click_1);
             // 
             // pix_game3
             // 
             this.pix_game3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pix_game3.Image = ((System.Drawing.Image)(resources.GetObject("pix_game3.Image")));
-            this.pix_game3.Location = new System.Drawing.Point(204, 339);
-            this.pix_game3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pix_game3.Location = new System.Drawing.Point(194, 295);
+            this.pix_game3.Margin = new System.Windows.Forms.Padding(2);
             this.pix_game3.Name = "pix_game3";
             this.pix_game3.Size = new System.Drawing.Size(148, 139);
             this.pix_game3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pix_game3.TabIndex = 5;
+            this.pix_game3.TabIndex = 15;
             this.pix_game3.TabStop = false;
             this.pix_game3.Click += new System.EventHandler(this.pix_game3_Click);
             // 
@@ -181,12 +160,12 @@ namespace exam
             // 
             this.pix_game2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pix_game2.Image = ((System.Drawing.Image)(resources.GetObject("pix_game2.Image")));
-            this.pix_game2.Location = new System.Drawing.Point(796, 146);
-            this.pix_game2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pix_game2.Location = new System.Drawing.Point(786, 102);
+            this.pix_game2.Margin = new System.Windows.Forms.Padding(2);
             this.pix_game2.Name = "pix_game2";
             this.pix_game2.Size = new System.Drawing.Size(148, 139);
             this.pix_game2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pix_game2.TabIndex = 4;
+            this.pix_game2.TabIndex = 14;
             this.pix_game2.TabStop = false;
             this.pix_game2.Click += new System.EventHandler(this.pix_game2_Click);
             // 
@@ -194,12 +173,12 @@ namespace exam
             // 
             this.pix_back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pix_back.Image = ((System.Drawing.Image)(resources.GetObject("pix_back.Image")));
-            this.pix_back.Location = new System.Drawing.Point(2, -2);
-            this.pix_back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pix_back.Location = new System.Drawing.Point(11, -2);
+            this.pix_back.Margin = new System.Windows.Forms.Padding(2);
             this.pix_back.Name = "pix_back";
             this.pix_back.Size = new System.Drawing.Size(1138, 607);
             this.pix_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pix_back.TabIndex = 3;
+            this.pix_back.TabIndex = 13;
             this.pix_back.TabStop = false;
             // 
             // frm_games
@@ -208,25 +187,32 @@ namespace exam
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1138, 607);
-            this.Controls.Add(this.pnl_gamescreen);
+            this.Controls.Add(this.lbl_title);
+            this.Controls.Add(this.pix_game4);
+            this.Controls.Add(this.lbl_game4);
+            this.Controls.Add(this.lbl_game2);
+            this.Controls.Add(this.lbl_game3);
+            this.Controls.Add(this.lbl_game1);
+            this.Controls.Add(this.pix_game1);
+            this.Controls.Add(this.pix_game3);
+            this.Controls.Add(this.pix_game2);
+            this.Controls.Add(this.pix_back);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_games";
             this.Text = "Form2";
-            this.pnl_gamescreen.ResumeLayout(false);
-            this.pnl_gamescreen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pix_game4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pix_game1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pix_game3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pix_game2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pix_back)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnl_gamescreen;
         private System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.PictureBox pix_game4;
         private System.Windows.Forms.Label lbl_game4;

@@ -10,10 +10,13 @@ using System.Windows.Forms;
 
 namespace exam
 {
-    public partial class Form6 : Form
+    public partial class gametwo : Form
     {
-        public Form6()
+        private frm_games mainform = null;
+
+        public gametwo(Form callingForm)
         {
+            mainform = callingForm as frm_games;
             InitializeComponent();
         }
     }
