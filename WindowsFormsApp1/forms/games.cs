@@ -41,7 +41,8 @@ namespace exam
 
         private void pix_game2_Click(object sender, EventArgs e)
         {
-            gametwo game2 = new gametwo(this, gamewords, player);
+            buildrandomarr();
+            gametwo game2 = new gametwo(this, randomwordsgame, player);
             game2.Show();
         }
 
@@ -104,16 +105,3 @@ namespace exam
     }
 	
 }
-
-//for (int i = 0; i < 3; i++)
-//{
-//    randomwordsgame[i] = randomfromworngs();
-//    for (int j = 0; j < i; j++)
-//    {
-//        if (randomwordsgame[i].CompareTo(randomwordsgame[j]) == 0)
-//        {
-//            randomwordsgame[i] = randomfromworngs();
-//            j = 0;
-//        }
-//    }
-//}
