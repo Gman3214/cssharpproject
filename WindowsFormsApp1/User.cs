@@ -13,7 +13,7 @@ namespace exam
         public string mail;
         public string username;
         public int genralscore;
-        List<int> wrongamewords = new List<int>();
+        public List<int> wrongamewords = new List<int>();
 
         public User()
 		{
@@ -57,11 +57,11 @@ namespace exam
             }
 
         }
-        public void addwrong(List<int> wrongslist)
-		{
-            for (int i = 0; i < wrongslist.Count; i++)
-                wrongamewords.Add(wrongslist[i]);
-		}
+  //      public void addwrong(List<int> wrongslist)
+		//{
+  //          for (int i = 0; i < wrongslist.Count; i++)
+  //              wrongamewords.Add(wrongslist[i]);
+		//}
         public void fileupdate (string location, int id)//מעדכן את הקובץ המתאים בכל פעם שהמשתמש צודק או טועה באיות
         {
             StreamWriter sw = new StreamWriter(@location);

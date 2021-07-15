@@ -39,7 +39,8 @@ namespace exam
 
         private void pix_game2_Click(object sender, EventArgs e)
         {
-            gametwo game2 = new gametwo(this, gamewords, player);
+            buildrandomarr();
+            gametwo game2 = new gametwo(this, randomwordsgame, player);
             game2.Show();
         }
 
@@ -74,9 +75,9 @@ namespace exam
                 //משתנה אינדקס רנדומלי מאוסף המילים שהמשתמש טעה בהן בעבר!!!
                 for (int i = 0; i < gamewords.Count; i++)
                     if (player.wrongamewords[r] == gamewords[i].wordid)//עוברים על אוסף המילים הכללי ומוצאים את האובייקט בעל אותו id
-                        j = i;//מחזירים מילה שקיימת באוסף המילים שהמשתמש טעה כאובייקט
+                        return gamewords[j];//מחזירים מילה שקיימת באוסף המילים שהמשתמש טעה כאובייקט
             }
-            return gamewords[j];
+            return randomfromall();
         }
         private void buildrandomarr()// בניית מערך של 3 מילים רנדומליות עבור משחק בודד
 		{
