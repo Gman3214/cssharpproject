@@ -36,6 +36,9 @@ namespace exam
             this.lbl_gusses = new System.Windows.Forms.Label();
             this.btn_submit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_next = new System.Windows.Forms.Button();
+            this.lbl_encourage = new System.Windows.Forms.Label();
+            this.lbl_score = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_hanged)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,9 +80,8 @@ namespace exam
             this.lbl_gusses.ForeColor = System.Drawing.Color.White;
             this.lbl_gusses.Location = new System.Drawing.Point(19, 213);
             this.lbl_gusses.Name = "lbl_gusses";
-            this.lbl_gusses.Size = new System.Drawing.Size(88, 106);
+            this.lbl_gusses.Size = new System.Drawing.Size(0, 106);
             this.lbl_gusses.TabIndex = 3;
-            this.lbl_gusses.Text = "0";
             this.lbl_gusses.UseWaitCursor = true;
             this.lbl_gusses.Visible = false;
             // 
@@ -103,7 +105,43 @@ namespace exam
             this.button1.TabIndex = 5;
             this.button1.Text = "replay word";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseWaitCursor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_next
+            // 
+            this.btn_next.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_next.Location = new System.Drawing.Point(732, 322);
+            this.btn_next.Name = "btn_next";
+            this.btn_next.Size = new System.Drawing.Size(120, 60);
+            this.btn_next.TabIndex = 6;
+            this.btn_next.Text = "next round";
+            this.btn_next.UseVisualStyleBackColor = true;
+            this.btn_next.Visible = false;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+            // 
+            // lbl_encourage
+            // 
+            this.lbl_encourage.AutoSize = true;
+            this.lbl_encourage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lbl_encourage.ForeColor = System.Drawing.Color.White;
+            this.lbl_encourage.Location = new System.Drawing.Point(37, 343);
+            this.lbl_encourage.Name = "lbl_encourage";
+            this.lbl_encourage.Size = new System.Drawing.Size(51, 20);
+            this.lbl_encourage.TabIndex = 7;
+            this.lbl_encourage.Text = "woow";
+            this.lbl_encourage.Visible = false;
+            // 
+            // lbl_score
+            // 
+            this.lbl_score.AutoSize = true;
+            this.lbl_score.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_score.ForeColor = System.Drawing.Color.White;
+            this.lbl_score.Location = new System.Drawing.Point(795, 36);
+            this.lbl_score.Name = "lbl_score";
+            this.lbl_score.Size = new System.Drawing.Size(89, 38);
+            this.lbl_score.TabIndex = 8;
+            this.lbl_score.Text = "score:";
             // 
             // gameone
             // 
@@ -112,6 +150,9 @@ namespace exam
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1138, 607);
+            this.Controls.Add(this.lbl_score);
+            this.Controls.Add(this.lbl_encourage);
+            this.Controls.Add(this.btn_next);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_submit);
             this.Controls.Add(this.lbl_gusses);
@@ -139,5 +180,8 @@ namespace exam
         private System.Windows.Forms.Label lbl_gusses;
         private System.Windows.Forms.Button btn_submit;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_next;
+        private System.Windows.Forms.Label lbl_encourage;
+        private System.Windows.Forms.Label lbl_score;
     }
 }
