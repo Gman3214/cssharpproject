@@ -137,7 +137,7 @@ namespace exam
 
 		private void btn_chkres_Click(object sender, EventArgs e)// בודקת את הבחירה של המשתמש
 		{
-            // playermedia.Enabled = false;
+             playermedia.Enabled = false;
             btn_chkres.Enabled = false;
             lbl_updatescore.Visible = true;
             pic_score.Visible = true;
@@ -248,6 +248,7 @@ namespace exam
            
             if (roundcounter < 5)
 			{
+                playermedia.Enabled = true;
                 Letgetstarted();
                 btn_next.Enabled = false;
             }
@@ -266,10 +267,10 @@ namespace exam
             
             try
             {
-                using (StreamWriter newword = new StreamWriter(@"OUTPUT\" + player.username + "_wrongspelling.txt", true))// לטפל בשגיאה
+                using (StreamWriter newword = new StreamWriter(@"OUTPUT\" + player.username + "_wrongspelling.txt"))// לטפל בשגיאה
                 {
                     for (int i = 0; i < getwrongans.Count; i++)
-                        newword.WriteLine("\r\n"+getwrongans[i]);
+                        newword.WriteLine(getwrongans[i]);
                 }
             }
             catch (IOException copyError)

@@ -54,7 +54,7 @@ namespace exam
             {
                 goodend();
             }
-            if (letterplacment < randomwordsgame[roundnum].word.Length  && timeswrong == 7)
+            else if (letterplacment < randomwordsgame[roundnum].word.Length  && timeswrong == 7)
             {
                 badend();
             }
@@ -78,15 +78,18 @@ namespace exam
         }
         private void goodend()
         {
+            player.chkmypast(randomwordsgame[roundnum]);
             player.genralscore = player.genralscore + 10;
-            if(roundnum==3)
+            roundnum++;
+            if (roundnum==3)
             { btn_next.Text = "end game"; }
             lbl_gusses.Text = "good job you saved him!!!";
             ending();
         }
         private void badend()
         {
-            player.wrongamewords.Add(randomwordsgame[roundnum].wordid);
+            player.updatemypast(randomwordsgame[roundnum]);
+            roundnum++;
             player.genralscore = player.genralscore - 10;
             if (roundnum == 3)
             { btn_next.Text = "end game"; }
@@ -127,16 +130,15 @@ namespace exam
                 lbl_encourage.Visible = true;
                 lbl_encourage.Text = "this letter is wrong";
             }
-        }
+        }//הפונקציה בודקת שהאות שהמשתמש הכניס מתאימה למילה שצריכה להיות באותו מקום
         private void ending()
-        {
-            roundnum++;
+        {   
             btn_next.Visible = true;
             lbl_encourage.Visible = false;
             timeswrong = 0;
             letterplacment = 0;
             lbl_score.Text = "score:" + player.genralscore;
-        }
+        }//הפונקציה מסיימת את הסבב ומאחלת לסבב הבא
 
         private void btn_next_Click(object sender, EventArgs e)
         {

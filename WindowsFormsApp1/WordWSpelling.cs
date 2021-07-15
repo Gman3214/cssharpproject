@@ -17,7 +17,7 @@ namespace exam
         public WordWSpelling(string wrong1, string wrong2, string wrong3, string word, int wordid, string wordwav) : base(word, wordid, wordwav)
         {
             this.wrong1 = wrong1;
-            this.wrong2 = wrong2;
+            this.wrong2 = wrong2; 
             this.wrong3 = wrong3;
         }
         public int CompareTo(object obj)// מתודה שמשווה בין שניי אובייקטים של ה class

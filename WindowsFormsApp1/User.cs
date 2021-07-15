@@ -57,15 +57,32 @@ namespace exam
             }
 
         }
-  //      public void addwrong(List<int> wrongslist)
-		//{
-  //          for (int i = 0; i < wrongslist.Count; i++)
-  //              wrongamewords.Add(wrongslist[i]);
-		//}
+        public void chkmypast(WordWImage nword) // בדיקה אם מילה שכעת נכונה אם אכן הייתה טעות בעבר המשתמש. אם כן - מחיקת המילה מהרשימה. אם לא - נחזיר שקר
+        {
+            for (int i = 0; i < this.wrongamewords.Count; i++)
+            {
+                if (this.wrongamewords[i] == nword.wordid)
+                {
+                    wrongamewords.RemoveAt(i);
+                    return;
+                }
+            }
+            return;
+        }//עבור סבב שהמשתמש צדק בו
+        public void updatemypast(WordWImage nword)// כשהמשתמש טעה במילה מסויימת, אבל זו לא פעם ראשונה שהוא טועה בה. מונע כפילויות ברשימת מילים שגויות 
+        {
+            for (int i = 0; i < this.wrongamewords.Count; i++)
+            {
+                if (this.wrongamewords[i]==nword.wordid)
+                    return;
+            }
+            this.wrongamewords.Add(nword.wordid);
+            return;
+        }//עבור סבב שהמשתמש טעה בו 
         public void fileupdate (string location, int id)//מעדכן את הקובץ המתאים בכל פעם שהמשתמש צודק או טועה באיות
         {
             StreamWriter sw = new StreamWriter(@location);
-            sw.WriteLine(id + "\r\n"); // לבדוק שזה רושם נכון בקובץ
+            sw.WriteLine(id); // לבדוק שזה רושם נכון בקובץ
             sw.Close();
         }
     }

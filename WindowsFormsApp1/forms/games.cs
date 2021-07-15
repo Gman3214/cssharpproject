@@ -41,7 +41,7 @@ namespace exam
 
         private void pix_game2_Click(object sender, EventArgs e)
         {
-            buildrandomarr();
+            buildrandomarr(); 
             gametwo game2 = new gametwo(this, randomwordsgame, player);
             game2.Show();
         }
@@ -102,6 +102,26 @@ namespace exam
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("do you want to save your data for next time?", "save?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result==DialogResult.Yes)
+            { 
+               try
+                {
+                    using (StreamWriter newword = new StreamWriter(@"OUTPUT\" + player.username + "_wrong.txt"))
+                    {
+                         for (int i = 0; i < player.wrongamewords.Count; i++)
+                            newword.WriteLine( player.wrongamewords[i]);
+                    }
+                }
+                catch (IOException copyError)
+                {
+                    MessageBox.Show(copyError.Message);
+                }
+            }
+            this.Close();
+        }
     }
 	
 }

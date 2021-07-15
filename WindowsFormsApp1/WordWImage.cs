@@ -11,7 +11,7 @@ namespace exam
     {
         public string wordimg;
         public int wordlng;
-        public char[] letters;
+        public char[] letters; 
         static int wordwimagecounter = 130;
 
         public WordWImage (string wordimg, int wordlng, char[] letters, string word, int wordid, string wordwav) : base( word, wordid, wordwav)
