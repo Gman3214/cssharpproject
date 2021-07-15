@@ -13,7 +13,7 @@ namespace exam
         public string mail;
         public string username;
         public int genralscore;
-        List<int> wrongamewords = new List<int>();
+        public List<int> wrongamewords = new List<int>();
 
         public User()
 		{

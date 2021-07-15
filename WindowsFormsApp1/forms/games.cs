@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace exam
 {
@@ -33,7 +34,8 @@ namespace exam
         }
         private void pix_game1_Click_1(object sender, EventArgs e)
         {
-            gameone game1 = new gameone(this, gamewords);
+            buildrandomarr();
+            gameone game1 = new gameone(this,player, randomwordsgame);
             game1.Show();
         }
 
@@ -67,34 +69,51 @@ namespace exam
         private WordWImage randomfromworngs()// פונקציה שבוחרת מילה רנדומלית מתוך אוסף המילים לאיות שלנו
         {
             int j = 0;
-            if (player.wrongamewords.Count != 0)
-            //אם אוסף המילים שהמשתמש טעה בהן אינו ריe
-            {
-                int r = rnd.Next(0, player.wrongamewords.Count - 1);
+                int r = rnd.Next(0, player.wrongamewords.Count);
                 //משתנה אינדקס רנדומלי מאוסף המילים שהמשתמש טעה בהן בעבר!!!
-                for (int i = 0; i < gamewords.Count; i++)
-                    if (player.wrongamewords[r] == gamewords[i].wordid)//עוברים על אוסף המילים הכללי ומוצאים את האובייקט בעל אותו id
-                        j = i;//מחזירים מילה שקיימת באוסף המילים שהמשתמש טעה כאובייקט
-            }
-            return gamewords[j];
+                for ( int i = 0; i < gamewords.Count; i++)
+                    if (player.wrongamewords[r] == gamewords[i].wordid)
+                    {
+                        j = i;
+                        return gamewords[j];
+                    }//עוברים על אוסף המילים הכללי ומוצאים את האובייקט בעל אותו id
+                       //מחזירים מילה שקיימת באוסף המילים שהמשתמש טעה כאובייקט
+            return randomfromall();
         }
         private void buildrandomarr()// בניית מערך של 3 מילים רנדומליות עבור משחק בודד
 		{
             for (int i = 0; i < 3; i++)
-			{
-                randomwordsgame[i] = randomfromworngs();
-                for (int j = 0; j < i; j++)
-				{
-                    if (randomwordsgame[i].CompareTo(randomwordsgame[j]) == 0)
-					{
-                        randomwordsgame[i] = randomfromworngs();
-                        j = 0;
+            {
+                if (i < player.wrongamewords.Count)
+                {
+                    randomwordsgame[i] = randomfromworngs();
+                    for (int j = 0; j < i; j++)
+                    {
+                        while (randomwordsgame[i]==randomwordsgame[j]) 
+                        {
+                            randomwordsgame[i] = randomfromworngs();
+                            j = 0;
+                        }
                     }
-				}
-
+                }
+                else
+                    randomwordsgame[i] = randomfromall();
             }
-
         }
-	
+
     }
+	
 }
+
+//for (int i = 0; i < 3; i++)
+//{
+//    randomwordsgame[i] = randomfromworngs();
+//    for (int j = 0; j < i; j++)
+//    {
+//        if (randomwordsgame[i].CompareTo(randomwordsgame[j]) == 0)
+//        {
+//            randomwordsgame[i] = randomfromworngs();
+//            j = 0;
+//        }
+//    }
+//}
