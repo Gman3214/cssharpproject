@@ -25,6 +25,8 @@ namespace exam
         public frm_spelling(List<WordWSpelling> spellingwords,User player)
         {
             sp = new SoundPlayer();
+            StreamWriter sw = new StreamWriter(@"OUTPUT\"+player.username+"_wrong.txt");
+            sw.Close();
             this.spellingwords = spellingwords;// לקיחת אוסף המילים מטופס הבית 
             this.player = player;// לקיחת הדתא של השחקן שלנו מטופס הבית
             InitializeComponent();
@@ -33,9 +35,9 @@ namespace exam
 		private void frm_spelling_Load(object sender, EventArgs e)// ברגע כניסה לאיות 
 		{
             cbx_ans1.Visible = false; cbx_ans2.Visible = false; cbx_ans3.Visible = false; cbx_ans4.Visible = false;// כל הפקדים בלתי נראים עד לחיצה על השמע
-			loadwrongs();btn_chkres.Enabled = false;
+			loadwrongs();
+            btn_chkres.Enabled = false;
             pic_great.Visible = false;lbl_feedback.Visible = false;pic_failed.Visible = false;
-            Letgetstarted();
 		}
         private void startnewround()//  בחירת מילה רנדומלית ובדיקה שעדיין לא הוצגה למשתמש והחזרתה למשחק.
 		{
@@ -56,19 +58,20 @@ namespace exam
 		}
         private void Letgetstarted()
 		{
-            startnewround();
             playermedia.Enabled = true;
+            startnewround();
+            pic_failed.Visible = false;pic_great.Visible = false;
+            lbl_feedback.Visible = false;
             string[] answ = { randomwordsarr[roundcounter].word, randomwordsarr[roundcounter].wrong1, randomwordsarr[roundcounter].wrong2, randomwordsarr[roundcounter].wrong3 };
             // מערך תשובות עבור הפקדים
-            //string right = randomwordsarr[roundcounter].word;// שומר על התשובה הנכונה
-            cbx_ans1.Visible = true; cbx_ans2.Visible = true; cbx_ans3.Visible = true; cbx_ans4.Visible = true;
+       
+            cbx_ans1.Enabled = true; cbx_ans2.Enabled = true; cbx_ans3.Enabled = true; cbx_ans4.Enabled = true;
             int r = rnd.Next(0,3);
             cbx_ans1.Text = answ[r];
-            cbx_ans2.Text = answ[(r + 1) % 4];
+            cbx_ans2.Text = answ[(r + 1) % 4]; 
             cbx_ans3.Text = answ[(r + 2) % 4];
             cbx_ans4.Text = answ[(r + 3) % 4];
-            if (cbx_ans1.Checked == true || cbx_ans2.Checked == true || cbx_ans3.Checked == true || cbx_ans4.Checked == true)
-                btn_chkres.Enabled = true;
+            btn_chkres.Enabled = true;
         }
 
 
@@ -76,16 +79,21 @@ namespace exam
 		{
 			try
 			{
-				StreamReader sr = new StreamReader(@"DATA\" + player.username + "_WrongSPELLING.txt");
+				StreamReader sr = new StreamReader(@"OUTPUT\" + player.username + "_wrong.txt");
 				string str = null;
+                if (sr.ReadLine() == null)
+                    return;
+                
 				while ((str = sr.ReadLine()) != null)
 					getwrongans.Add(int.Parse(str));
 				sr.Close();
 			}
 			catch (IOException copyError)
 			{
-				MessageBox.Show("error loading from data");
+				MessageBox.Show(copyError.Message);
 			}
+			
+
 		}
 
 
@@ -104,27 +112,48 @@ namespace exam
                 return spellingwords[y]; 
         }
 
+        private bool anschek()// בדיקת תשובה
+		{
+            if (cbx_ans1.Text == randomwordsarr[roundcounter].word && cbx_ans1.Checked == true)
+                return true;
+            else if (cbx_ans2.Text == randomwordsarr[roundcounter].word && cbx_ans2.Checked == true)
+                return true;
+            else if (cbx_ans3.Text == randomwordsarr[roundcounter].word && cbx_ans3.Checked == true)
+                return true;
+            else if (cbx_ans4.Text == randomwordsarr[roundcounter].word && cbx_ans4.Checked == true)
+                return true;
+            else return false;
+        }
 		
 
 		private void btn_chkres_Click(object sender, EventArgs e)// בודקת את הבחירה של המשתמש
 		{
-            playermedia.Enabled = false;
+            // playermedia.Enabled = false;
+           useranswer = anschek();
            if(useranswer==true)
 			{
                 pic_great.Visible = true;
+                lbl_feedback.Visible = true;
                 lbl_feedback.Text = "You doing great! \n keep going!";
+                roundcounter ++ ;
 			}
 			else// מקרה שהמשתמש בחר בתשובה לא נכונה
 			{
+                lbl_feedback.Visible = true;
 				lbl_feedback.Text = "oh well, We learn something new every day";
                 pic_failed.Visible = true;
                 
                 // הכנסה לתוך קובץ הwrong של המשתמש
-                using (StreamWriter newword = new StreamWriter(@"DATA\" + player.username + "_WrongSPELLING.txt", true))
-                { newword.WriteLine(randomwordsarr[roundcounter].wordid+"\r\n"); }
+                //using (StreamWriter newword = new StreamWriter(@"OUTPUT\" + player.username + "_wrong.txt", true))
+                //{ newword.WriteLine(randomwordsarr[roundcounter].wordid+"\r\n"); }
+                roundcounter++;
             }
-            roundcounter++;
+            cbx_ans2.Checked = false; cbx_ans1.Checked = false; cbx_ans3.Checked = false; cbx_ans4.Checked = false;
+            cbx_ans2.Enabled = false; cbx_ans1.Enabled = false; cbx_ans3.Enabled = false; cbx_ans4.Enabled = false;
             btn_chkres.Enabled = false;
+            useranswer = false;
+            if (roundcounter < 5)
+                Letgetstarted();
            
 		}
 
@@ -136,50 +165,52 @@ namespace exam
 
 		private void cbx_ans2_CheckedChanged(object sender, EventArgs e)
 		{
-            if(cbx_ans2.Checked==true)
-			{
                 cbx_ans3.Enabled = false;
                 cbx_ans4.Enabled = false;
                 cbx_ans1.Enabled = false;
-            }
-            if (cbx_ans2.Checked == true && randomwordsarr[roundcounter].word == cbx_ans2.Text)// בדיקה שמה שנבחר אכן התשובה הנכונה
-                useranswer = true;
-		}
+        }
 
 		private void cbx_ans1_CheckedChanged(object sender, EventArgs e)
 		{
-            if (cbx_ans1.Checked == true)
-            {
-                cbx_ans3.Enabled = false;
-                cbx_ans4.Enabled = false;
-                cbx_ans2.Enabled = false;
-            }
-            if (cbx_ans1.Checked == true && randomwordsarr[roundcounter].word == cbx_ans1.Text)
-                useranswer = true;
+            cbx_ans2.Enabled =false;
+            cbx_ans3.Enabled = false;
+            cbx_ans4.Enabled =false;
         }
 
 		private void cbx_ans4_CheckedChanged(object sender, EventArgs e)
 		{
-            if (cbx_ans4.Checked == true)
-            {
+            
                 cbx_ans3.Enabled = false;
                 cbx_ans2.Enabled = false;
                 cbx_ans1.Enabled = false;
-            }
-            if (cbx_ans4.Checked == true && randomwordsarr[roundcounter].word == cbx_ans4.Text)
-                useranswer = true;
         }
 
 		private void cbx_ans3_CheckedChanged(object sender, EventArgs e)
 		{
-            if (cbx_ans3.Checked == true)
-            {
+            
                 cbx_ans2.Enabled = false;
                 cbx_ans4.Enabled = false;
                 cbx_ans1.Enabled = false;
-            }
-            if (cbx_ans3.Checked == true && randomwordsarr[roundcounter].word == cbx_ans3.Text)
-                useranswer = true;
+       
         }
+
+		private void btn_start_Click(object sender, EventArgs e)
+		{
+            cbx_ans2.Visible = true; cbx_ans1.Visible = true; cbx_ans3.Visible = true; cbx_ans4.Visible = true;
+            //         for (int i =0;i<5;i++)
+            //{
+            //             btn_start.Enabled = false;
+            Letgetstarted();
+   //         }
+   //         if (roundcounter==4)
+			//{
+   //             btn_start.Text = "keep spelling";
+   //             btn_start.Enabled = true;
+			//}
+           
+                
+        }
+
+		
 	}
 }
