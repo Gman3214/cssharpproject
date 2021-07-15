@@ -13,12 +13,14 @@ namespace exam
         public string mail;
         public string username;
         public int genralscore;
-        
+        List<int> wrongamewords = new List<int>();
+
         public User()
 		{
             mail = null;
             username = null;
             genralscore = 0;
+            wrongamewords = null;
 		}
         public User (string mail)
         {
@@ -32,12 +34,34 @@ namespace exam
                     break;
             }
             username = name;
+            loadwrongfromfile(username);
             genralscore = 0;
         }
         public void scoreupdate (int points)// מעדכן את הציון הכללי של המשתמש
         {
             genralscore = genralscore + points; 
         }
+        
+        private void loadwrongfromfile(string name)
+		{
+            if(File.Exists(@"OUTPUT\" + name + "_wrong.txt"))
+			{
+                using (StreamReader sr = new StreamReader(@"OUTPUT\" + name + "_wrong.txt"))
+                {
+                    string str = null;
+                    if (sr.ReadLine() == null)
+                        return;
+                    while ((str = sr.ReadLine()) != null)
+                        wrongamewords.Add(int.Parse(str));
+                }
+            }
+
+        }
+        public void addwrong(List<int> wrongslist)
+		{
+            for (int i = 0; i < wrongslist.Count; i++)
+                wrongamewords.Add(wrongslist[i]);
+		}
         public void fileupdate (string location, int id)//מעדכן את הקובץ המתאים בכל פעם שהמשתמש צודק או טועה באיות
         {
             StreamWriter sw = new StreamWriter(@location);
