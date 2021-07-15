@@ -56,6 +56,7 @@ namespace exam
             this.txt_nextl.Size = new System.Drawing.Size(20, 20);
             this.txt_nextl.TabIndex = 1;
             this.txt_nextl.UseWaitCursor = true;
+            this.txt_nextl.TextChanged += new System.EventHandler(this.txt_nextl_TextChanged);
             // 
             // lbl_title
             // 
@@ -76,9 +77,11 @@ namespace exam
             this.lbl_gusses.ForeColor = System.Drawing.Color.White;
             this.lbl_gusses.Location = new System.Drawing.Point(318, 192);
             this.lbl_gusses.Name = "lbl_gusses";
-            this.lbl_gusses.Size = new System.Drawing.Size(0, 106);
+            this.lbl_gusses.Size = new System.Drawing.Size(88, 106);
             this.lbl_gusses.TabIndex = 3;
+            this.lbl_gusses.Text = "0";
             this.lbl_gusses.UseWaitCursor = true;
+            this.lbl_gusses.Visible = false;
             // 
             // btn_submit
             // 

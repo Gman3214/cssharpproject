@@ -12,19 +12,16 @@ namespace exam
 {
     public partial class frm_games : Form
     {
-        public List<WordWImage> gamewords
-        {
-            get { return gamewords; }
-            set { this.gamewords = gamewords; }
-        }
-                
+        public List<WordWImage> gamewords = new List<WordWImage>();
+
+
+
 
         User player = new User();
         int points = 0;
 
         public frm_games(List<WordWImage> gamewords,User player)
         {
-            gamewords = new List<WordWImage>();
             this.player = player;
             this.gamewords = gamewords;
             InitializeComponent();
@@ -37,25 +34,25 @@ namespace exam
         }
         private void pix_game1_Click_1(object sender, EventArgs e)
         {
-            gameone game1 = new gameone(this);
+            gameone game1 = new gameone(this,gamewords);
             game1.Show();
         }
 
         private void pix_game2_Click(object sender, EventArgs e)
         {
-            gameone game2 = new gameone(this);
+            gametwo game2 = new gametwo(this);
             game2.Show();
         }
 
         private void pix_game3_Click(object sender, EventArgs e)
         {
-            gameone game3 = new gameone(this);
+            gametri game3 = new gametri(this);
             game3.Show();
         }
 
         private void pix_game4_Click(object sender, EventArgs e)
         {
-            gameone game4 = new gameone(this);
+            gamefour game4 = new gamefour(this);
             game4.Show();
         }
     }
