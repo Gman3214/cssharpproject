@@ -21,10 +21,6 @@ C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\bin\Debug\ex
 C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.csprojAssemblyReference.cache
 C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.frm_add.resources
 C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.frm_spelling.resources
-C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.Form3.resources
-C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.Form4.resources
-C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.Form5.resources
-C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.Form6.resources
 C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.frm_games.resources
 C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.MainScreen.resources
 C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.Properties.Resources.resources
@@ -49,3 +45,7 @@ C:\Users\almog\OneDrive\מסמכים\GitHub\cssharpproject\WindowsFormsApp1\obj\
 C:\Users\almog\OneDrive\מסמכים\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.gamefour.resources
 C:\Users\almog\OneDrive\מסמכים\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.gametri.resources
 C:\Users\almog\OneDrive\מסמכים\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.gametwo.resources
+C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.gameone.resources
+C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.gamefour.resources
+C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.gametri.resources
+C:\Users\Bar Leiba\Documents\GitHub\cssharpproject\WindowsFormsApp1\obj\Debug\exam.gametwo.resources
