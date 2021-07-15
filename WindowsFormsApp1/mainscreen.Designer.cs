@@ -31,7 +31,9 @@ namespace exam
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.pnl_sidebar = new System.Windows.Forms.Panel();
+            this.lbl_out = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pix_exit = new System.Windows.Forms.PictureBox();
             this.btn_spelling = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_games = new System.Windows.Forms.Button();
@@ -41,12 +43,10 @@ namespace exam
             this.btn_submitmail = new System.Windows.Forms.Button();
             this.lbl_mail = new System.Windows.Forms.Label();
             this.txt_email = new System.Windows.Forms.TextBox();
-            this.lbl_out = new System.Windows.Forms.Label();
-            this.pix_exit = new System.Windows.Forms.PictureBox();
             this.pnl_sidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pix_exit)).BeginInit();
             this.pnl_childfrm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pix_start)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pix_exit)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_sidebar
@@ -66,6 +66,20 @@ namespace exam
             this.pnl_sidebar.Size = new System.Drawing.Size(211, 609);
             this.pnl_sidebar.TabIndex = 0;
             // 
+            // lbl_out
+            // 
+            this.lbl_out.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_out.AutoSize = true;
+            this.lbl_out.Font = new System.Drawing.Font("Nirmala UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_out.ForeColor = System.Drawing.Color.White;
+            this.lbl_out.Location = new System.Drawing.Point(78, 457);
+            this.lbl_out.Name = "lbl_out";
+            this.lbl_out.Size = new System.Drawing.Size(104, 30);
+            this.lbl_out.TabIndex = 7;
+            this.lbl_out.Text = "LOG OUT";
+            this.lbl_out.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_out.Visible = false;
+            // 
             // panel2
             // 
             this.panel2.Location = new System.Drawing.Point(214, 2);
@@ -73,6 +87,19 @@ namespace exam
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(796, 494);
             this.panel2.TabIndex = 1;
+            // 
+            // pix_exit
+            // 
+            this.pix_exit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pix_exit.Image = ((System.Drawing.Image)(resources.GetObject("pix_exit.Image")));
+            this.pix_exit.Location = new System.Drawing.Point(22, 447);
+            this.pix_exit.Name = "pix_exit";
+            this.pix_exit.Size = new System.Drawing.Size(50, 49);
+            this.pix_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pix_exit.TabIndex = 6;
+            this.pix_exit.TabStop = false;
+            this.pix_exit.Visible = false;
+            this.pix_exit.Click += new System.EventHandler(this.pix_exit_Click);
             // 
             // btn_spelling
             // 
@@ -217,33 +244,6 @@ namespace exam
             this.txt_email.Size = new System.Drawing.Size(151, 20);
             this.txt_email.TabIndex = 0;
             // 
-            // lbl_out
-            // 
-            this.lbl_out.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_out.AutoSize = true;
-            this.lbl_out.Font = new System.Drawing.Font("Nirmala UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_out.ForeColor = System.Drawing.Color.White;
-            this.lbl_out.Location = new System.Drawing.Point(78, 457);
-            this.lbl_out.Name = "lbl_out";
-            this.lbl_out.Size = new System.Drawing.Size(104, 30);
-            this.lbl_out.TabIndex = 7;
-            this.lbl_out.Text = "LOG OUT";
-            this.lbl_out.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_out.Visible = false;
-            // 
-            // pix_exit
-            // 
-            this.pix_exit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pix_exit.Image = ((System.Drawing.Image)(resources.GetObject("pix_exit.Image")));
-            this.pix_exit.Location = new System.Drawing.Point(22, 447);
-            this.pix_exit.Name = "pix_exit";
-            this.pix_exit.Size = new System.Drawing.Size(50, 49);
-            this.pix_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pix_exit.TabIndex = 6;
-            this.pix_exit.TabStop = false;
-            this.pix_exit.Visible = false;
-            this.pix_exit.Click += new System.EventHandler(this.pix_exit_Click);
-            // 
             // MainScreen
             // 
             this.AllowDrop = true;
@@ -252,6 +252,7 @@ namespace exam
             this.ClientSize = new System.Drawing.Size(1346, 604);
             this.Controls.Add(this.pnl_childfrm);
             this.Controls.Add(this.pnl_sidebar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainScreen";
@@ -259,10 +260,10 @@ namespace exam
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnl_sidebar.ResumeLayout(false);
             this.pnl_sidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pix_exit)).EndInit();
             this.pnl_childfrm.ResumeLayout(false);
             this.pnl_childfrm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pix_start)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pix_exit)).EndInit();
             this.ResumeLayout(false);
 
         }

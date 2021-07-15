@@ -30,21 +30,25 @@ namespace exam
         private void pix_game1_Click_1(object sender, EventArgs e)
         {
             gameone game1 = new gameone(this);
+            game1.Show();
         }
 
         private void pix_game2_Click(object sender, EventArgs e)
         {
-
+            gameone game2 = new gameone(this);
+            game2.Show();
         }
 
         private void pix_game3_Click(object sender, EventArgs e)
         {
-
+            gameone game3 = new gameone(this);
+            game3.Show();
         }
 
         private void pix_game4_Click(object sender, EventArgs e)
         {
-
+            gameone game4 = new gameone(this);
+            game4.Show();
         }
     }
 }

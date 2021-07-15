@@ -173,10 +173,10 @@ namespace exam
             // 
             this.pix_back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pix_back.Image = ((System.Drawing.Image)(resources.GetObject("pix_back.Image")));
-            this.pix_back.Location = new System.Drawing.Point(11, -2);
+            this.pix_back.Location = new System.Drawing.Point(11, 11);
             this.pix_back.Margin = new System.Windows.Forms.Padding(2);
             this.pix_back.Name = "pix_back";
-            this.pix_back.Size = new System.Drawing.Size(1138, 607);
+            this.pix_back.Size = new System.Drawing.Size(1124, 607);
             this.pix_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pix_back.TabIndex = 13;
             this.pix_back.TabStop = false;
