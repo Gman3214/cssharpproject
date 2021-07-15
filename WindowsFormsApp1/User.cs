@@ -57,11 +57,11 @@ namespace exam
             }
 
         }
-        public void addwrong(List<int> wrongslist)
-		{
-            for (int i = 0; i < wrongslist.Count; i++)
-                wrongamewords.Add(wrongslist[i]);
-		}
+  //      public void addwrong(List<int> wrongslist)
+		//{
+  //          for (int i = 0; i < wrongslist.Count; i++)
+  //              wrongamewords.Add(wrongslist[i]);
+		//}
         public void fileupdate (string location, int id)//מעדכן את הקובץ המתאים בכל פעם שהמשתמש צודק או טועה באיות
         {
             StreamWriter sw = new StreamWriter(@location);

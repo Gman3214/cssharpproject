@@ -25,7 +25,7 @@ namespace exam
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btn_submitmail_Click(object sender, EventArgs e)// הכנסת המייל שהמשתמש רשם
@@ -43,6 +43,7 @@ namespace exam
                                                                   //במידה והמשתמש היה קיים במערכת, היא מאתרת איזה משתמש זה ומחזירה לנו את ה user שלו
                                                                   // במידה והמשתמש לא היה קיים מעולם במערכת, המתודה כבר הוסיפה אותו למערכת ומחזירה לנו את המשתמש שהיא יצרה עבור המייל שלו 
                                                                   // הערה : לא נדרש מאיתנו להודיע למשתמש אם היה קיים כבר במערכת או שהוא חדש. ולכן לא צריך ליצור הודעה על כך עבור המשתמש
+                
                 player = person;
                 lbl_hello.Text = "Hello "+person.username;
                 lbl_hello.Show();
@@ -112,7 +113,6 @@ namespace exam
         {
 
             openform(new frm_spelling (spellingwords,player));
-            
         }
 
         private void btn_add_Click(object sender, EventArgs e)

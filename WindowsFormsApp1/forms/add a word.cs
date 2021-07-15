@@ -112,7 +112,7 @@ namespace exam
                         }
                         catch (IOException copyError)
                         {
-                            MessageBox.Show("error copying the media into the date");
+                            MessageBox.Show(copyError.Message);
                         }
                     }
                 }
