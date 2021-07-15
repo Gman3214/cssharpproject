@@ -26,8 +26,7 @@ namespace exam
         public frm_spelling(List<WordWSpelling> spellingwords,User player)
         {
            
-            StreamWriter sw = new StreamWriter(@"OUTPUT\"+player.username+"_wrong.txt");
-            sw.Close();
+            using(StreamWriter sw = new StreamWriter(@"OUTPUT\" + player.username + "_wrongspelling.txt", true)) { }
             this.spellingwords = spellingwords;// לקיחת אוסף המילים מטופס הבית 
             this.player = player;// לקיחת הדתא של השחקן שלנו מטופס הבית
             InitializeComponent();
@@ -63,6 +62,7 @@ namespace exam
         private void Letgetstarted()
 		{
             playermedia.Enabled = true;
+
             startnewround();
             pic_failed.Visible = false;pic_great.Visible = false;
             lbl_feedback.Visible = false;
@@ -75,7 +75,7 @@ namespace exam
             cbx_ans2.Text = answ[(r + 1) % 4]; 
             cbx_ans3.Text = answ[(r + 2) % 4];
             cbx_ans4.Text = answ[(r + 3) % 4];
-            btn_chkres.Enabled = true;
+            btn_chkres.Enabled = true;btn_next.Visible = false;
         }
 
 
@@ -83,14 +83,15 @@ namespace exam
 		{
 			try
 			{
-				StreamReader sr = new StreamReader(@"OUTPUT\" + player.username + "_wrong.txt");
-				string str = null;
-                if (sr.ReadLine() == null)
-                    return;
-                
-				while ((str = sr.ReadLine()) != null)
-					getwrongans.Add(int.Parse(str));
-				sr.Close();
+                using (StreamReader sr = new StreamReader(@"OUTPUT\" + player.username + "_wrongspelling.txt"))
+                {
+                    string str = null;
+                    if (sr.ReadLine() == null)
+                        return;
+
+                    while ((str = sr.ReadLine()) != null)
+                        getwrongans.Add(int.Parse(str));
+                }
 			}
 			catch (IOException copyError)
 			{
@@ -138,33 +139,36 @@ namespace exam
 		{
             // playermedia.Enabled = false;
             btn_chkres.Enabled = false;
+            lbl_updatescore.Visible = true;
+            pic_score.Visible = true;
            useranswer = anschek();
            if(useranswer==true)
 			{
                 pic_great.Visible = true;
+                player.genralscore = player.genralscore + 10;
+                lbl_updatescore.Text = "Your corrnet Score:\n" + player.genralscore;
                 lbl_feedback.Visible = true;
                 lbl_feedback.Text = "You doing great! \n keep going!";
                 for (int i = 0; i < getwrongans.Count; i++)
 				{
-                    if (getwrongans[i] == randomwordsarr[roundcounter].wordid)
+                    if (getwrongans[i] == randomwordsarr[roundcounter].wordid)// במידה והמילה שצדק הייתה טעות בעבר, הורדה מהמילים שטעה 
                         getwrongans.RemoveAt(i);
 				}
             }
             else// מקרה שהמשתמש בחר בתשובה לא נכונה
 			{
                 lbl_feedback.Visible = true;
-				lbl_feedback.Text = "oh well, We learn something new every day";
+                player.genralscore = player.genralscore -5;
+                lbl_updatescore.Text = "Your corrnet Score:\n" + player.genralscore;
+                lbl_feedback.Text = "oh well, We learn something new every day";
                 pic_failed.Visible = true;
                 getwrongans.Add(randomwordsarr[roundcounter].wordid);// הוספת המילה שהמשתמש טעה בה למאגר מילים שטעה
-                // הכנסה לתוך קובץ הwrong של המשתמש
-                //using (StreamWriter newword = new StreamWriter(@"OUTPUT\" + player.username + "_wrong.txt", true))
-                //{ newword.WriteLine(randomwordsarr[roundcounter].wordid+"\r\n"); }
                
             }
             roundcounter = roundcounter + 1;
             cbx_ans2.Checked = false; cbx_ans1.Checked = false; cbx_ans3.Checked = false; cbx_ans4.Checked = false;
             cbx_ans2.Enabled = false; cbx_ans1.Enabled = false; cbx_ans3.Enabled = false; cbx_ans4.Enabled = false;
-            btn_chkres.Enabled = false; btn_chkres.Visible = false;
+            btn_chkres.Enabled = false; btn_chkres.Visible = false; btn_next.Visible = true;
             useranswer = false;
             btn_next.Enabled = true;
          
@@ -197,6 +201,7 @@ namespace exam
                 cbx_ans1.Enabled = false;
                 btn_chkres.Visible = true;
                 btn_chkres.Enabled = true;
+                
             }
         }
 
@@ -221,6 +226,7 @@ namespace exam
                 cbx_ans4.Enabled = false;
                 btn_chkres.Enabled = true;
                 btn_chkres.Visible = true;
+                
             }
         }
 
@@ -233,6 +239,7 @@ namespace exam
                 cbx_ans1.Enabled = false;
                 btn_chkres.Enabled = true;
                 btn_chkres.Visible = true;
+           
             }
         }
 
@@ -257,6 +264,18 @@ namespace exam
 		private void btn_return_Click(object sender, EventArgs e)
 		{
             
+            try
+            {
+                using (StreamWriter newword = new StreamWriter(@"OUTPUT\" + player.username + "_wrongspelling.txt", true))// לטפל בשגיאה
+                {
+                    for (int i = 0; i < getwrongans.Count; i++)
+                        newword.WriteLine("\r\n"+getwrongans[i]);
+                }
+            }
+            catch (IOException copyError)
+            {
+                MessageBox.Show(copyError.Message);
+            }
             this.Close();
 		}
 	}

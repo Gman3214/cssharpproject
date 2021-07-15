@@ -44,9 +44,12 @@ namespace exam
 			this.lbl_feedback = new System.Windows.Forms.Label();
 			this.btn_next = new System.Windows.Forms.Button();
 			this.btn_return = new System.Windows.Forms.Button();
+			this.lbl_updatescore = new System.Windows.Forms.Label();
+			this.pic_score = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.playermedia)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_great)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_failed)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pic_score)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lbl_spellingtitle
@@ -71,7 +74,6 @@ namespace exam
 			this.label1.TabIndex = 5;
 			this.label1.Text = "Please click on the audio to hear the word. Then choose the word that is spelled " +
     "correctly from the four:";
-			
 			// 
 			// playermedia
 			// 
@@ -102,9 +104,9 @@ namespace exam
 			// pic_great
 			// 
 			this.pic_great.Image = ((System.Drawing.Image)(resources.GetObject("pic_great.Image")));
-			this.pic_great.Location = new System.Drawing.Point(414, 171);
+			this.pic_great.Location = new System.Drawing.Point(441, 171);
 			this.pic_great.Name = "pic_great";
-			this.pic_great.Size = new System.Drawing.Size(353, 156);
+			this.pic_great.Size = new System.Drawing.Size(318, 255);
 			this.pic_great.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pic_great.TabIndex = 8;
 			this.pic_great.TabStop = false;
@@ -114,7 +116,7 @@ namespace exam
 			this.pic_failed.Image = ((System.Drawing.Image)(resources.GetObject("pic_failed.Image")));
 			this.pic_failed.Location = new System.Drawing.Point(459, 171);
 			this.pic_failed.Name = "pic_failed";
-			this.pic_failed.Size = new System.Drawing.Size(239, 161);
+			this.pic_failed.Size = new System.Drawing.Size(286, 255);
 			this.pic_failed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pic_failed.TabIndex = 10;
 			this.pic_failed.TabStop = false;
@@ -218,12 +220,41 @@ namespace exam
 			this.btn_return.UseVisualStyleBackColor = true;
 			this.btn_return.Click += new System.EventHandler(this.btn_return_Click);
 			// 
+			// lbl_updatescore
+			// 
+			this.lbl_updatescore.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.lbl_updatescore.AutoSize = true;
+			this.lbl_updatescore.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_updatescore.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbl_updatescore.Location = new System.Drawing.Point(644, 455);
+			this.lbl_updatescore.Name = "lbl_updatescore";
+			this.lbl_updatescore.Size = new System.Drawing.Size(64, 25);
+			this.lbl_updatescore.TabIndex = 20;
+			this.lbl_updatescore.Text = "label2";
+			this.lbl_updatescore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl_updatescore.Visible = false;
+			// 
+			// pic_score
+			// 
+			this.pic_score.Image = ((System.Drawing.Image)(resources.GetObject("pic_score.Image")));
+			this.pic_score.Location = new System.Drawing.Point(550, 474);
+			this.pic_score.Name = "pic_score";
+			this.pic_score.Size = new System.Drawing.Size(42, 34);
+			this.pic_score.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pic_score.TabIndex = 21;
+			this.pic_score.TabStop = false;
+			this.pic_score.Visible = false;
+			// 
 			// frm_spelling
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
 			this.ClientSize = new System.Drawing.Size(1138, 607);
+			this.Controls.Add(this.pic_score);
+			this.Controls.Add(this.lbl_updatescore);
 			this.Controls.Add(this.btn_return);
 			this.Controls.Add(this.btn_next);
 			this.Controls.Add(this.lbl_feedback);
@@ -246,6 +277,7 @@ namespace exam
 			((System.ComponentModel.ISupportInitialize)(this.playermedia)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_great)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_failed)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pic_score)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -267,5 +299,7 @@ namespace exam
 		private System.Windows.Forms.Label lbl_feedback;
 		private System.Windows.Forms.Button btn_next;
 		private System.Windows.Forms.Button btn_return;
+		private System.Windows.Forms.Label lbl_updatescore;
+		private System.Windows.Forms.PictureBox pic_score;
 	}
 }
