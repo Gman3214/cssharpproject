@@ -35,6 +35,7 @@ namespace exam
             this.lbl_title = new System.Windows.Forms.Label();
             this.lbl_gusses = new System.Windows.Forms.Label();
             this.btn_submit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pic_hanged)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,6 @@ namespace exam
             this.txt_nextl.Size = new System.Drawing.Size(20, 20);
             this.txt_nextl.TabIndex = 1;
             this.txt_nextl.UseWaitCursor = true;
-            this.txt_nextl.TextChanged += new System.EventHandler(this.txt_nextl_TextChanged);
             // 
             // lbl_title
             // 
@@ -75,7 +75,7 @@ namespace exam
             this.lbl_gusses.AutoSize = true;
             this.lbl_gusses.Font = new System.Drawing.Font("Nirmala UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_gusses.ForeColor = System.Drawing.Color.White;
-            this.lbl_gusses.Location = new System.Drawing.Point(318, 192);
+            this.lbl_gusses.Location = new System.Drawing.Point(19, 213);
             this.lbl_gusses.Name = "lbl_gusses";
             this.lbl_gusses.Size = new System.Drawing.Size(88, 106);
             this.lbl_gusses.TabIndex = 3;
@@ -95,6 +95,16 @@ namespace exam
             this.btn_submit.UseWaitCursor = true;
             this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(494, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 44);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "replay word";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // gameone
             // 
             this.AllowDrop = true;
@@ -102,6 +112,7 @@ namespace exam
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1138, 607);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_submit);
             this.Controls.Add(this.lbl_gusses);
             this.Controls.Add(this.lbl_title);
@@ -127,5 +138,6 @@ namespace exam
         private System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.Label lbl_gusses;
         private System.Windows.Forms.Button btn_submit;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -37,35 +37,43 @@ namespace exam
 
         private void btn_submit_Click(object sender, EventArgs e)
         {
-            string tmp = null;
-            if (txt_nextl.Text.Length != 1)
-                MessageBox.Show("pls enter just one letter into the txtbox");
-            else
-            {
-                if (txt_nextl.Text[0] == currentword.word[letterplacment])
-                {
-                    for (int i = 0; i < currentword.word.Length-1; i++)
-                    {
-                        if(i==letterplacment)
-                            tmp = tmp + txt_nextl.Text[0];
-                        tmp = tmp + lbl_gusses.Text[i];
-                    }
-                    lbl_gusses.Text = tmp;
-                    letterplacment++;
-                }
+            if(letterplacment<currentword.word.Length-1 && timeswrong!=7)
+            { 
+                string tmp = null;
+                if (txt_nextl.Text.Length != 1)
+                    MessageBox.Show("pls enter just one letter into the txtbox");
                 else
                 {
-                    timeswrong++;
-                    
+                    if (txt_nextl.Text[0] == currentword.word[letterplacment])
+                    {
+                       for (int i = 0; i < currentword.word.Length-1; i++)
+                       {
+                           if(i==letterplacment)
+                                tmp = tmp + txt_nextl.Text[0];
+                           tmp = tmp + lbl_gusses.Text[i];
+                       }
+                        lbl_gusses.Text = tmp;
+                        letterplacment++;
+                        txt_nextl.Clear();
+                        txt_nextl.Focus();
+                    }
+                    else
+                    {
+                        timeswrong++;
+                        pic_hanged.ImageLocation = @"HANGEDMANGAME/lvl" + timeswrong + ".jpg";
+                        txt_nextl.Clear();
+                        txt_nextl.Focus();
+                    }
                 }
             }
-        }
-
-
-
-        private void txt_nextl_TextChanged(object sender, EventArgs e)
-        {
-
+            else if(letterplacment < currentword.word.Length-1 && timeswrong == 7)
+            {
+                lbl_gusses.Text = "you lose,better luck next time :)";
+            }
+            else if(letterplacment == currentword.word.Length-1 && timeswrong != 7)
+            {
+                lbl_gusses.Text = "good job you saved him!!!";
+            }
         }
         public void start ()
         {
@@ -80,6 +88,11 @@ namespace exam
                     lbl_gusses.Text = lbl_gusses.Text + "-";
             }
             wordsound.SoundLocation = @"VOICE/" + currentword.wordwav;
+            wordsound.Play();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             wordsound.Play();
         }
     }
