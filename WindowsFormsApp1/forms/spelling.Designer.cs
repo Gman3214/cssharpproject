@@ -42,6 +42,8 @@ namespace exam
 			this.cbx_ans2 = new System.Windows.Forms.CheckBox();
 			this.cbx_ans4 = new System.Windows.Forms.CheckBox();
 			this.lbl_feedback = new System.Windows.Forms.Label();
+			this.btn_next = new System.Windows.Forms.Button();
+			this.btn_return = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.playermedia)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_great)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pic_failed)).BeginInit();
@@ -69,7 +71,7 @@ namespace exam
 			this.label1.TabIndex = 5;
 			this.label1.Text = "Please click on the audio to hear the word. Then choose the word that is spelled " +
     "correctly from the four:";
-			this.label1.Click += new System.EventHandler(this.label1_Click);
+			
 			// 
 			// playermedia
 			// 
@@ -119,7 +121,8 @@ namespace exam
 			// 
 			// btn_start
 			// 
-			this.btn_start.Location = new System.Drawing.Point(265, 142);
+			this.btn_start.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_start.Location = new System.Drawing.Point(202, 142);
 			this.btn_start.Name = "btn_start";
 			this.btn_start.Size = new System.Drawing.Size(149, 23);
 			this.btn_start.TabIndex = 11;
@@ -138,6 +141,7 @@ namespace exam
 			this.cbx_ans1.TabIndex = 12;
 			this.cbx_ans1.Text = "checkBox1";
 			this.cbx_ans1.UseVisualStyleBackColor = true;
+			this.cbx_ans1.CheckedChanged += new System.EventHandler(this.cbx_ans1_CheckedChanged_1);
 			// 
 			// cbx_ans3
 			// 
@@ -150,6 +154,7 @@ namespace exam
 			this.cbx_ans3.TabIndex = 13;
 			this.cbx_ans3.Text = "checkBox1";
 			this.cbx_ans3.UseVisualStyleBackColor = true;
+			this.cbx_ans3.CheckedChanged += new System.EventHandler(this.cbx_ans3_CheckedChanged_1);
 			// 
 			// cbx_ans2
 			// 
@@ -162,6 +167,7 @@ namespace exam
 			this.cbx_ans2.TabIndex = 14;
 			this.cbx_ans2.Text = "checkBox1";
 			this.cbx_ans2.UseVisualStyleBackColor = true;
+			this.cbx_ans2.CheckedChanged += new System.EventHandler(this.cbx_ans2_CheckedChanged_1);
 			// 
 			// cbx_ans4
 			// 
@@ -174,6 +180,7 @@ namespace exam
 			this.cbx_ans4.TabIndex = 15;
 			this.cbx_ans4.Text = "checkBox1";
 			this.cbx_ans4.UseVisualStyleBackColor = true;
+			this.cbx_ans4.CheckedChanged += new System.EventHandler(this.cbx_ans4_CheckedChanged_1);
 			// 
 			// lbl_feedback
 			// 
@@ -187,12 +194,38 @@ namespace exam
 			this.lbl_feedback.Text = "label2";
 			this.lbl_feedback.Visible = false;
 			// 
+			// btn_next
+			// 
+			this.btn_next.BackColor = System.Drawing.Color.Teal;
+			this.btn_next.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_next.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btn_next.Location = new System.Drawing.Point(403, 416);
+			this.btn_next.Name = "btn_next";
+			this.btn_next.Size = new System.Drawing.Size(58, 41);
+			this.btn_next.TabIndex = 17;
+			this.btn_next.Text = "NEXT";
+			this.btn_next.UseVisualStyleBackColor = false;
+			this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+			// 
+			// btn_return
+			// 
+			this.btn_return.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_return.Location = new System.Drawing.Point(374, 142);
+			this.btn_return.Name = "btn_return";
+			this.btn_return.Size = new System.Drawing.Size(127, 23);
+			this.btn_return.TabIndex = 18;
+			this.btn_return.Text = "Return to menu";
+			this.btn_return.UseVisualStyleBackColor = true;
+			this.btn_return.Click += new System.EventHandler(this.btn_return_Click);
+			// 
 			// frm_spelling
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
 			this.ClientSize = new System.Drawing.Size(1138, 607);
+			this.Controls.Add(this.btn_return);
+			this.Controls.Add(this.btn_next);
 			this.Controls.Add(this.lbl_feedback);
 			this.Controls.Add(this.cbx_ans4);
 			this.Controls.Add(this.cbx_ans2);
@@ -232,5 +265,7 @@ namespace exam
 		private System.Windows.Forms.CheckBox cbx_ans2;
 		private System.Windows.Forms.CheckBox cbx_ans4;
 		private System.Windows.Forms.Label lbl_feedback;
+		private System.Windows.Forms.Button btn_next;
+		private System.Windows.Forms.Button btn_return;
 	}
 }

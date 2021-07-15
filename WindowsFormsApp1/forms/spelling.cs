@@ -30,6 +30,9 @@ namespace exam
             this.spellingwords = spellingwords;// לקיחת אוסף המילים מטופס הבית 
             this.player = player;// לקיחת הדתא של השחקן שלנו מטופס הבית
             InitializeComponent();
+            btn_next.Enabled = false;
+            btn_return.Enabled = false; btn_return.Visible = false;
+
         }
 
 		private void frm_spelling_Load(object sender, EventArgs e)// ברגע כניסה לאיות 
@@ -42,20 +45,19 @@ namespace exam
         private void startnewround()//  בחירת מילה רנדומלית ובדיקה שעדיין לא הוצגה למשתמש והחזרתה למשחק.
 		{
             //if(roundcounter !=4) לזכור שיש בסך הכל חמישה סיבובים
-            randomwordsarr[roundcounter] = randomspelslc();
+            
+            randomwordsarr[roundcounter] = randomfromworng();
             for (int i = 0;i<roundcounter;i++)// בודק שהמילה הרדנומלית שנבחרה עדיין לא הופיעה בסיבובים קודמים  
 			{
                 if(randomwordsarr[roundcounter].CompareTo(randomwordsarr[i])==0)
 				{
-                    randomwordsarr[roundcounter] = randomspelslc();
+
+                    randomwordsarr[roundcounter] = randomfromall();
                     i = 0;
 				}
 			}
 		}
-		private void label1_Click(object sender, EventArgs e)
-		{
-
-		}
+		
         private void Letgetstarted()
 		{
             playermedia.Enabled = true;
@@ -96,20 +98,24 @@ namespace exam
 
 		}
 
-
-		private WordWSpelling randomspelslc()// פונקציה שבוחרת מילה רנדומלית מתוך אוסף המילים לאיות שלנו
+        private WordWSpelling randomfromall()
 		{
-            if(getwrongans.Count!=0)//אם אוסף המילים שהמשתמש טעה בהן אינו ריק
+            int y = rnd.Next(spellingwords.Count);//אחרת, ניקח מילה רנדומלית מתוך אוסף המילים שלנו. 
+            return spellingwords[y];
+        }
+		private WordWSpelling randomfromworng()// פונקציה שבוחרת מילה רנדומלית מתוך אוסף המילים לאיות שלנו
+		{
+            int j = 0;
+            if (getwrongans.Count!=0)
+                //אם אוסף המילים שהמשתמש טעה בהן אינו ריe
 			{
-                int r = rnd.Next(0,getwrongans.Count-1);//משתנה אינדקס רנדומלי מאוסף המילים
+                int r = rnd.Next(0,getwrongans.Count-1);
+               //משתנה אינדקס רנדומלי מאוסף המילים
                 for(int i =0;i<spellingwords.Count;i++)
-				{
                     if (getwrongans[r] == spellingwords[i].wordid)//עוברים על אוסף המילים הכללי ומוצאים את האובייקט בעל אותו id
-                        return spellingwords[i];//מחזירים מילה שקיימת באוסף המילים שהמשתמש טעה כאובייקט
-				}
-			}
-                int y = rnd.Next(spellingwords.Count);//אחרת, ניקח מילה רנדומלית מתוך אוסף המילים שלנו. 
-                return spellingwords[y]; 
+                        j=i;//מחזירים מילה שקיימת באוסף המילים שהמשתמש טעה כאובייקט
+            }
+            return spellingwords[j];
         }
 
         private bool anschek()// בדיקת תשובה
@@ -129,31 +135,37 @@ namespace exam
 		private void btn_chkres_Click(object sender, EventArgs e)// בודקת את הבחירה של המשתמש
 		{
             // playermedia.Enabled = false;
+            btn_chkres.Enabled = false;
            useranswer = anschek();
            if(useranswer==true)
 			{
                 pic_great.Visible = true;
                 lbl_feedback.Visible = true;
                 lbl_feedback.Text = "You doing great! \n keep going!";
-                roundcounter ++ ;
-			}
-			else// מקרה שהמשתמש בחר בתשובה לא נכונה
+                for (int i = 0; i < getwrongans.Count; i++)
+				{
+                    if (getwrongans[i] == randomwordsarr[roundcounter].wordid)
+                        getwrongans.RemoveAt(i);
+				}
+            }
+            else// מקרה שהמשתמש בחר בתשובה לא נכונה
 			{
                 lbl_feedback.Visible = true;
 				lbl_feedback.Text = "oh well, We learn something new every day";
                 pic_failed.Visible = true;
-                
+                getwrongans.Add(randomwordsarr[roundcounter].wordid);// הוספת המילה שהמשתמש טעה בה למאגר מילים שטעה
                 // הכנסה לתוך קובץ הwrong של המשתמש
                 //using (StreamWriter newword = new StreamWriter(@"OUTPUT\" + player.username + "_wrong.txt", true))
                 //{ newword.WriteLine(randomwordsarr[roundcounter].wordid+"\r\n"); }
-                roundcounter++;
+               
             }
+            roundcounter = roundcounter + 1;
             cbx_ans2.Checked = false; cbx_ans1.Checked = false; cbx_ans3.Checked = false; cbx_ans4.Checked = false;
             cbx_ans2.Enabled = false; cbx_ans1.Enabled = false; cbx_ans3.Enabled = false; cbx_ans4.Enabled = false;
-            btn_chkres.Enabled = false;
+            btn_chkres.Enabled = false; btn_chkres.Visible = false;
             useranswer = false;
-            if (roundcounter < 5)
-                Letgetstarted();
+            btn_next.Enabled = true;
+         
            
 		}
 
@@ -163,54 +175,86 @@ namespace exam
             sp.Play();
         }
 
-		private void cbx_ans2_CheckedChanged(object sender, EventArgs e)
-		{
-                cbx_ans3.Enabled = false;
-                cbx_ans4.Enabled = false;
-                cbx_ans1.Enabled = false;
-        }
-
-		private void cbx_ans1_CheckedChanged(object sender, EventArgs e)
-		{
-            cbx_ans2.Enabled =false;
-            cbx_ans3.Enabled = false;
-            cbx_ans4.Enabled =false;
-        }
-
-		private void cbx_ans4_CheckedChanged(object sender, EventArgs e)
-		{
-            
-                cbx_ans3.Enabled = false;
-                cbx_ans2.Enabled = false;
-                cbx_ans1.Enabled = false;
-        }
-
-		private void cbx_ans3_CheckedChanged(object sender, EventArgs e)
-		{
-            
-                cbx_ans2.Enabled = false;
-                cbx_ans4.Enabled = false;
-                cbx_ans1.Enabled = false;
-       
-        }
-
 		private void btn_start_Click(object sender, EventArgs e)
 		{
+            btn_return.Enabled = false; btn_return.Visible = false;
+            btn_start.Enabled = false;btn_start.Visible = false;
             cbx_ans2.Visible = true; cbx_ans1.Visible = true; cbx_ans3.Visible = true; cbx_ans4.Visible = true;
-            //         for (int i =0;i<5;i++)
-            //{
-            //             btn_start.Enabled = false;
+            roundcounter = 0;
+            for(int i =0;i<5;i++)
+                randomwordsarr[i] = null;
             Letgetstarted();
-   //         }
-   //         if (roundcounter==4)
-			//{
-   //             btn_start.Text = "keep spelling";
-   //             btn_start.Enabled = true;
-			//}
-           
-                
         }
 
-		
+		private void cbx_ans4_CheckedChanged_1(object sender, EventArgs e)
+		{
+            if (cbx_ans4.Checked == true)
+            {
+                cbx_ans3.Enabled = false;
+                cbx_ans2.Enabled = false;
+                cbx_ans1.Enabled = false;
+                btn_chkres.Visible = true;
+                btn_chkres.Enabled = true;
+            }
+        }
+
+		private void cbx_ans2_CheckedChanged_1(object sender, EventArgs e)
+		{
+            if (cbx_ans2.Checked == true)
+            {
+                cbx_ans3.Enabled = false;
+                cbx_ans4.Enabled = false;
+                cbx_ans1.Enabled = false;
+                btn_chkres.Enabled = true;
+                btn_chkres.Visible = true;
+            }
+        }
+
+		private void cbx_ans1_CheckedChanged_1(object sender, EventArgs e)
+		{
+            if (cbx_ans1.Checked == true)
+            {
+                cbx_ans2.Enabled = false;
+                cbx_ans3.Enabled = false;
+                cbx_ans4.Enabled = false;
+                btn_chkres.Enabled = true;
+                btn_chkres.Visible = true;
+            }
+        }
+
+		private void cbx_ans3_CheckedChanged_1(object sender, EventArgs e)
+		{
+            if (cbx_ans3.Checked == true)
+            {
+                cbx_ans2.Enabled = false;
+                cbx_ans4.Enabled = false;
+                cbx_ans1.Enabled = false;
+                btn_chkres.Enabled = true;
+                btn_chkres.Visible = true;
+            }
+        }
+
+		private void btn_next_Click(object sender, EventArgs e)
+		{
+           
+            if (roundcounter < 5)
+			{
+                Letgetstarted();
+                btn_next.Enabled = false;
+            }
+            if (roundcounter==5)
+			{
+                btn_next.Enabled = false;
+                btn_start.Text = "keep spelling";
+                btn_start.Enabled = true;btn_start.Visible = true;
+                btn_return.Enabled = true;btn_return.Visible = true;
+			}
+               
+        }
+
+		private void btn_return_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
