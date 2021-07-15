@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forms\Form5.cs">
+    <Compile Include="forms\game3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="forms\game3.Designer.cs">
+      <DependentUpon>game3.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Form6.cs">
+    <Compile Include="forms\game2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Form6.Designer.cs">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <Compile Include="forms\game2.Designer.cs">
+      <DependentUpon>game2.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\spelling.cs">
       <SubType>Form</SubType>
@@ -64,17 +64,17 @@
     <Compile Include="forms\spelling.Designer.cs">
       <DependentUpon>spelling.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Form3.cs">
+    <Compile Include="forms\game1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="forms\game1.Designer.cs">
+      <DependentUpon>game1.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\Form4.cs">
+    <Compile Include="forms\game4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="forms\game4.Designer.cs">
+      <DependentUpon>game4.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\add a word.cs">
       <SubType>Form</SubType>
@@ -107,17 +107,17 @@
     <EmbeddedResource Include="forms\spelling.resx">
       <DependentUpon>spelling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="forms\game1.resx">
+      <DependentUpon>game1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="forms\game4.resx">
+      <DependentUpon>game4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <EmbeddedResource Include="forms\game3.resx">
+      <DependentUpon>game3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Form6.resx">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <EmbeddedResource Include="forms\game2.resx">
+      <DependentUpon>game2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\games.resx">
       <DependentUpon>games.cs</DependentUpon>

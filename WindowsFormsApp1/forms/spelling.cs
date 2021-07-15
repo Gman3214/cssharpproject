@@ -76,7 +76,7 @@ namespace exam
 		{
 			try
 			{
-				StreamReader sr = new StreamReader(@"C:\Users\Bar Leiba\Desktop\WindowsFormsApp1\bin\Debug\DATA\" + player.username + "_WrongSPELLING.txt");
+				StreamReader sr = new StreamReader(@"DATA\" + player.username + "_WrongSPELLING.txt");
 				string str = null;
 				while ((str = sr.ReadLine()) != null)
 					getwrongans.Add(int.Parse(str));
@@ -91,9 +91,9 @@ namespace exam
 
 		private WordWSpelling randomspelslc()// פונקציה שבוחרת מילה רנדומלית מתוך אוסף המילים לאיות שלנו
 		{
-            if(getwrongans !=null)//אם אוסף המילים שהמשתמש טעה בהן אינו ריק
+            if(getwrongans.Count!=0)//אם אוסף המילים שהמשתמש טעה בהן אינו ריק
 			{
-                int r = rnd.Next(getwrongans.Count);//משתנה אינדקס רנדומלי מאוסף המילים
+                int r = rnd.Next(0,getwrongans.Count-1);//משתנה אינדקס רנדומלי מאוסף המילים
                 for(int i =0;i<spellingwords.Count;i++)
 				{
                     if (getwrongans[r] == spellingwords[i].wordid)//עוברים על אוסף המילים הכללי ומוצאים את האובייקט בעל אותו id
@@ -120,7 +120,7 @@ namespace exam
                 pic_failed.Visible = true;
                 
                 // הכנסה לתוך קובץ הwrong של המשתמש
-                using (StreamWriter newword = new StreamWriter(@"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\DATA\" + player.username + "_WrongSPELLING.txt", true))
+                using (StreamWriter newword = new StreamWriter(@"DATA\" + player.username + "_WrongSPELLING.txt", true))
                 { newword.WriteLine(randomwordsarr[roundcounter].wordid+"\r\n"); }
             }
             roundcounter++;

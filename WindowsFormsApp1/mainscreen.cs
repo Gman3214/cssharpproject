@@ -110,7 +110,6 @@ namespace exam
 
         private void btn_spelling_Click(object sender, EventArgs e)
         {
-            
             openform(new frm_spelling (spellingwords,player));
         }
 
@@ -126,7 +125,7 @@ namespace exam
         }
         void createspellinglist()// המרת טופס מילים לאיות לתוך אובייקטים ואז לתוך הרשימה של המילים לאיות
         {
-            StreamReader spelling = new StreamReader(@"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\DATA\SpellWords.txt");
+            StreamReader spelling = new StreamReader(@"DATA\SpellWords.txt");
             string str = null;
             while ((str = spelling.ReadLine()) != null)
             {
@@ -149,7 +148,7 @@ namespace exam
         }
         void creategameslist()// המרת הטופס לאובייקטים והכנסתם לרשימת המילים למשחקים 
         {
-            StreamReader game = new StreamReader(@"C:\Users\almog\source\repos\WindowsFormsApp1\bin\Debug\DATA\wordImageData.txt");
+            StreamReader game = new StreamReader(@"DATA\wordImageData.txt");
             while (!game.EndOfStream)
             {
                 WordWImage word = createWimage(game.ReadLine());
@@ -158,7 +157,7 @@ namespace exam
             game.Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pix_exit_Click(object sender, EventArgs e)
         {
             activeform.Close();
             pix_exit.Hide();

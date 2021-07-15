@@ -35,22 +35,22 @@ namespace exam
         }
         private void pix_game1_Click(object sender, EventArgs e)
         {
-            opengame(new frm_spelling());
+            //opengame(new frm_spelling());
         }
 
         private void pix_game2_Click(object sender, EventArgs e)
         {
-
+            //opengame(new frm_spelling());
         }
 
         private void pix_game3_Click(object sender, EventArgs e)
         {
-
+            //opengame(new frm_spelling());
         }
 
         private void pix_game4_Click(object sender, EventArgs e)
         {
-
+            //opengame(new frm_spelling());
         }
     }
 }
