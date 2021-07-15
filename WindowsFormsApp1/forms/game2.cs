@@ -104,6 +104,7 @@ namespace exam
             txt_ans.Enabled = false; btn_chkans.Enabled = false;
            if(txt_ans.Text == gamewords[index].word)//כשהממשתמש צודק
 			{
+                player.chkmypast(gamewords[index]);
                 pic_slc.ImageLocation = @"ICONS\" + "amazing.png";
                 player.genralscore = player.genralscore + 10;
                
@@ -118,7 +119,7 @@ namespace exam
                 lbl_exp.Text = " Sometimes we fail,\nMaybe next time we will succeed ";
                 lbl_right.Visible = true; 
                 lbl_right.Text = "The right word is:\n" + gamewords[index].word;
-                player.wrongamewords.Add(gamewords[index].wordid);// הוספת מילה שהיא טעות למערך המילים של טעויות משתמש
+                player.updatemypast(gamewords[index]);// הוספת מילה שהיא טעות למערך המילים של טעויות משתמש
             }
             lbl_score.Visible = true; lbl_score.Text = "SCORE\n" + player.genralscore.ToString();
             pic_score.Visible = true;
@@ -128,5 +129,10 @@ namespace exam
 		{
             btn_chkans.Enabled = true;
 		}
-	}
+
+        private void btn_rtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 }

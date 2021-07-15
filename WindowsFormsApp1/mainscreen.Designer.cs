@@ -185,7 +185,7 @@ namespace exam
             this.lbl_hello.AutoSize = true;
             this.lbl_hello.Font = new System.Drawing.Font("Nirmala UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_hello.ForeColor = System.Drawing.Color.White;
-            this.lbl_hello.Location = new System.Drawing.Point(453, 385);
+            this.lbl_hello.Location = new System.Drawing.Point(467, 378);
             this.lbl_hello.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_hello.Name = "lbl_hello";
             this.lbl_hello.Size = new System.Drawing.Size(71, 30);

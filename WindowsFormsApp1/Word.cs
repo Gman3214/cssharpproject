@@ -12,7 +12,7 @@ namespace exam
     {
         public string word;
         public int wordid;
-        public string wordwav;
+        public string wordwav; 
 
         public Word(string word, int wordid, string wordwav)
         {
