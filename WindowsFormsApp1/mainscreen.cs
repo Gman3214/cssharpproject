@@ -110,6 +110,7 @@ namespace exam
 
         private void btn_spelling_Click(object sender, EventArgs e)
         {
+
             openform(new frm_spelling (spellingwords,player));
         }
 

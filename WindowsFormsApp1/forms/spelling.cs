@@ -16,15 +16,16 @@ namespace exam
     {
         List<WordWSpelling> spellingwords = new List<WordWSpelling>();
         User player = new User();
-        SoundPlayer sp;
+        SoundPlayer sp= new SoundPlayer();
         static Random rnd = new Random();
         WordWSpelling[] randomwordsarr = new WordWSpelling[5];// אוסף מילים למשחק אחד
         List<int> getwrongans = new List<int>();// אוסף ששומר מילים שהשחקן טעה בהן
         int roundcounter = 0;
         bool useranswer = false;
+        Form bcfrm= new Form();
         public frm_spelling(List<WordWSpelling> spellingwords,User player)
         {
-            sp = new SoundPlayer();
+           
             StreamWriter sw = new StreamWriter(@"OUTPUT\"+player.username+"_wrong.txt");
             sw.Close();
             this.spellingwords = spellingwords;// לקיחת אוסף המילים מטופס הבית 
@@ -32,6 +33,7 @@ namespace exam
             InitializeComponent();
             btn_next.Enabled = false;
             btn_return.Enabled = false; btn_return.Visible = false;
+            this.bcfrm = bcfrm;
 
         }
 
@@ -171,7 +173,7 @@ namespace exam
 
 		private void playermedia_Click(object sender, EventArgs e)
 		{
-            sp.SoundLocation = randomwordsarr[roundcounter].wordwav;
+            sp.SoundLocation = @"VOICE/" + randomwordsarr[roundcounter].wordwav;
             sp.Play();
         }
 
@@ -254,7 +256,8 @@ namespace exam
 
 		private void btn_return_Click(object sender, EventArgs e)
 		{
-
+            
+            this.Close();
 		}
 	}
 }
