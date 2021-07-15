@@ -12,16 +12,24 @@ namespace exam
 {
     public partial class frm_games : Form
     {
-        List<WordWImage> gamewords = new List<WordWImage>();
+        public List<WordWImage> gamewords
+        {
+            get { return gamewords; }
+            set { this.gamewords = gamewords; }
+        }
+                
+
         User player = new User();
         int points = 0;
 
         public frm_games(List<WordWImage> gamewords,User player)
         {
+            gamewords = new List<WordWImage>();
             this.player = player;
             this.gamewords = gamewords;
             InitializeComponent();
         }
+        
         public int score
         {
             get { return points; }
