@@ -59,24 +59,30 @@ namespace exam
         }
         public void chkmypast(WordWImage nword) // בדיקה אם מילה שכעת נכונה אם אכן הייתה טעות בעבר המשתמש. אם כן - מחיקת המילה מהרשימה. אם לא - נחזיר שקר
         {
-            for (int i = 0; i < this.wrongamewords.Count; i++)
+            if (wrongamewords != null)
             {
-                if (this.wrongamewords[i] == nword.wordid)
+                for (int i = 0; i < this.wrongamewords.Count; i++)
                 {
-                    wrongamewords.RemoveAt(i);
-                    return;
+                    if (this.wrongamewords[i] == nword.wordid)
+                    {
+                        wrongamewords.RemoveAt(i);
+                        return;
+                    }
                 }
             }
             return;
         }//עבור סבב שהמשתמש צדק בו
         public void updatemypast(WordWImage nword)// כשהמשתמש טעה במילה מסויימת, אבל זו לא פעם ראשונה שהוא טועה בה. מונע כפילויות ברשימת מילים שגויות 
-        {
-            for (int i = 0; i < this.wrongamewords.Count; i++)
+		{
+            if (wrongamewords != null)
             {
-                if (this.wrongamewords[i]==nword.wordid)
-                    return;
+                for (int i = 0; i < this.wrongamewords.Count; i++)
+                {
+                    if (this.wrongamewords[i] == nword.wordid)
+                        return;
+                }
             }
-            this.wrongamewords.Add(nword.wordid);
+           // this.wrongamewords.Add(nword.wordid);
             return;
         }//עבור סבב שהמשתמש טעה בו 
         public void fileupdate (string location, int id)//מעדכן את הקובץ המתאים בכל פעם שהמשתמש צודק או טועה באיות
