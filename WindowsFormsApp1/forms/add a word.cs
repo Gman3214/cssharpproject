@@ -42,7 +42,7 @@ namespace exam
                 lbl_addwrong2.Visible = false; txt_wrong2.Visible = false;
                 lbl_addwrong3.Visible = false; txt_wrong3.Visible = false;
             }
-        }
+        }//פותח וסוגר את החלונות המתאימים למלא בשביל להוסיף מילה לאיות
 
         private void cbx_games_CheckedChanged(object sender, EventArgs e)
         {
@@ -60,7 +60,7 @@ namespace exam
                 lbl_addsound.Visible = false; txt_addsound.Visible = false; btn_selectsound.Visible = false;
                 lbl_addpic.Visible = false; txt_addpic.Visible = false; btn_slctpic.Visible = false;
             }
-        }
+        }//פותח וסוגר את החלונות המתאימים למלא בשביל להוסיף מילה למשחקים
         private void btn_selectsound_Click(object sender, EventArgs e)
         {
            OpenFileDialog soundfile = new OpenFileDialog();
@@ -69,7 +69,7 @@ namespace exam
             {
                 txt_addsound.Text = soundfile.FileName;
             }
-        }
+        }//נותן למשתמש לבחור קובץ סאונד לבחור מהמחשב שלו להוסיף
 
         private void btn_slctpic_Click(object sender, EventArgs e)
         {
@@ -79,7 +79,7 @@ namespace exam
             {
                 txt_addpic.Text = picfile.FileName;
             }
-        }
+        }//נותן למשתמש לבחור תמונה מהמחשב שלו להוסיף
 
         private void btn_add_Click(object sender, EventArgs e)
         {
@@ -167,6 +167,6 @@ namespace exam
                     MessageBox.Show("you need all the txt boxes to be filled");
                 }
             }
-        }
+        }//בדיקה של השדות והעתקת הקבצים והמילה ותקיות המתאימות בשביל התוכנה
     }
 }

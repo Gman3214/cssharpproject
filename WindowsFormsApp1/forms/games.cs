@@ -39,38 +39,35 @@ namespace exam
             buildrandomarr();
             gameone game1 = new gameone(this, player, randomwordsgame);
             game1.Show();
-        }
+        }//פותח את המשחק איש תלוי
 
         private void pix_game2_Click(object sender, EventArgs e)
         {
             buildrandomarr();
             gametwo game2 = new gametwo(this, randomwordsgame, player);
             game2.Show();
-        }
+        }//פותח את המשחק לרשום את המילה
 
         private void pix_game3_Click(object sender, EventArgs e)
         {
             buildrandomarr();
             gametri game3 = new gametri(this, randomwordsgame, player);
             game3.Show();
-        }
+        }//פותח את המשחק תקן את המילה 
 
         private void pix_game4_Click(object sender, EventArgs e)
         {
             buildrandomarr();
             gamefour game4 = new gamefour(this, randomwordsgame, player, gamewords);
             game4.Show();
-        }
+        }//פותח את המשחק תבחר תמונה
 
         private WordWImage randomfromall()
         {
             int y = rnd.Next(gamewords.Count);//אחרת, ניקח מילה רנדומלית מתוך אוסף המילים שלנו. 
             return gamewords[y];
-        }
-        private void pix_back_Click(object sender, EventArgs e)
-        {
+        }//בוחר מילה ראנדומאלית מכל המילים
 
-        }
         private WordWImage randomfromworngs()// פונקציה שבוחרת מילה רנדומלית מתוך אוסף המילים לאיות שלנו
         {
             int j = 0;
@@ -126,7 +123,7 @@ namespace exam
             }
             scorelbl.Text = "score:" + player.genralscore;
             this.Close();
-        }
+        }//מוסיף את ניקוד המשחקים לניקוד הכללי של השחקן ושולח חזרה למסך הבית
 
     }
 
