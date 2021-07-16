@@ -21,13 +21,14 @@ namespace exam
         int letterplacment = 0;
         User player = new User();
         WordWImage[] randomwordsgame = new WordWImage[3];
+        int points = 0;
         public gameone(Form callingForm,User player, WordWImage[] randomwordsgame)
         {
             this.randomwordsgame = randomwordsgame;
             this.player = player;
             mainform = callingForm as frm_games;
             InitializeComponent();
-            lbl_score.Text = "score:" + player.genralscore;
+            lbl_score.Text = "score:"+ points;
             start();
         }
 
@@ -79,7 +80,7 @@ namespace exam
         private void goodend()
         {
             player.chkmypast(randomwordsgame[roundnum]);
-            player.genralscore = player.genralscore + 10;
+            points = points + 10;
             roundnum++;
             if (roundnum==3)
             { btn_next.Text = "end game"; }
@@ -90,7 +91,7 @@ namespace exam
         {
             player.updatemypast(randomwordsgame[roundnum]);
             roundnum++;
-            player.genralscore = player.genralscore - 10;
+            points = points - 10;
             if (roundnum == 3)
             { btn_next.Text = "end game"; }
             lbl_gusses.Text = "you lose,better luck next time :)";
@@ -99,7 +100,7 @@ namespace exam
         private void button1_Click(object sender, EventArgs e)
         {
             wordsound.Play();
-        }
+        }//משמיע מוזיקה שוב
         private void clearletter()
         {
             txt_nextl.Clear();
@@ -137,14 +138,17 @@ namespace exam
             lbl_encourage.Visible = false;
             timeswrong = 0;
             letterplacment = 0;
-            lbl_score.Text = "score:" + player.genralscore;
+            lbl_score.Text = "score:" + points;
         }//הפונקציה מסיימת את הסבב ומאחלת לסבב הבא
 
         private void btn_next_Click(object sender, EventArgs e)
         {
             pic_hanged.ImageLocation = @"HANGEDMANGAME/lvl" + timeswrong + ".jpg";
             if (roundnum == 3)
+            {
+                player.scoreupdate(points);
                 this.Close();
+            }
             else
                 start();
         }

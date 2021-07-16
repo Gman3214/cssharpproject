@@ -37,13 +37,13 @@ namespace exam
         private void pix_game1_Click_1(object sender, EventArgs e)
         {
             buildrandomarr();
-            gameone game1 = new gameone(this,player, randomwordsgame);
+            gameone game1 = new gameone(this, player, randomwordsgame);
             game1.Show();
         }
 
         private void pix_game2_Click(object sender, EventArgs e)
         {
-            buildrandomarr(); 
+            buildrandomarr();
             gametwo game2 = new gametwo(this, randomwordsgame, player);
             game2.Show();
         }
@@ -58,7 +58,7 @@ namespace exam
         private void pix_game4_Click(object sender, EventArgs e)
         {
             buildrandomarr();
-            gamefour game4 = new gamefour(this,randomwordsgame, player);
+            gamefour game4 = new gamefour(this, randomwordsgame, player, gamewords);
             game4.Show();
         }
 
@@ -74,19 +74,19 @@ namespace exam
         private WordWImage randomfromworngs()// פונקציה שבוחרת מילה רנדומלית מתוך אוסף המילים לאיות שלנו
         {
             int j = 0;
-                int r = rnd.Next(0, player.wrongamewords.Count);
-                //משתנה אינדקס רנדומלי מאוסף המילים שהמשתמש טעה בהן בעבר!!!
-                for ( int i = 0; i < gamewords.Count; i++)
-                    if (player.wrongamewords[r] == gamewords[i].wordid)
-                    {
-                        j = i;
-                        return gamewords[j];
-                    }//עוברים על אוסף המילים הכללי ומוצאים את האובייקט בעל אותו id
-                       //מחזירים מילה שקיימת באוסף המילים שהמשתמש טעה כאובייקט
+            int r = rnd.Next(0, player.wrongamewords.Count);
+            //משתנה אינדקס רנדומלי מאוסף המילים שהמשתמש טעה בהן בעבר!!!
+            for (int i = 0; i < gamewords.Count; i++)
+                if (player.wrongamewords[r] == gamewords[i].wordid)
+                {
+                    j = i;
+                    return gamewords[j];
+                }//עוברים על אוסף המילים הכללי ומוצאים את האובייקט בעל אותו id
+                 //מחזירים מילה שקיימת באוסף המילים שהמשתמש טעה כאובייקט
             return randomfromall();
         }
         private void buildrandomarr()// בניית מערך של 3 מילים רנדומליות עבור משחק בודד
-		{
+        {
             for (int i = 0; i < 3; i++)
             {
                 if (i < player.wrongamewords.Count)
@@ -94,7 +94,7 @@ namespace exam
                     randomwordsgame[i] = randomfromworngs();
                     for (int j = 0; j < i; j++)
                     {
-                        while (randomwordsgame[i]==randomwordsgame[j]) 
+                        while (randomwordsgame[i] == randomwordsgame[j])
                         {
                             randomwordsgame[i] = randomfromworngs();
                             j = 0;
@@ -109,14 +109,14 @@ namespace exam
         private void button1_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("do you want to save your data for next time?", "save?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result==DialogResult.Yes)
-            { 
-               try
+            if (result == DialogResult.Yes)
+            {
+                try
                 {
                     using (StreamWriter newword = new StreamWriter(@"OUTPUT\" + player.username + "_wrong.txt"))
                     {
-                         for (int i = 0; i < player.wrongamewords.Count; i++)
-                            newword.WriteLine( player.wrongamewords[i]);
+                        for (int i = 0; i < player.wrongamewords.Count; i++)
+                            newword.WriteLine(player.wrongamewords[i]);
                     }
                 }
                 catch (IOException copyError)
@@ -128,5 +128,5 @@ namespace exam
             this.Close();
         }
     }
-	
+
 }
