@@ -27,7 +27,7 @@ namespace exam
             mainform = callingForm as frm_games;
             InitializeComponent();
             this.game_arr = gamewords;
-
+            this.player = player;
             lbl_exp.Text = "We need your help!\nSome words have lost some of their letters.\n" +
                 "Maybe you can help us fix them?";
             btn_str.Text="yes i will";
