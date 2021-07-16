@@ -60,7 +60,7 @@ namespace exam
             if(txt_ans.Text==null)
                 btn_chkans.Enabled = false;
         }
-        int time = 5;
+        
 		private void tim_ans_Tick(object sender, EventArgs e)//אירועי טיימר  
 		{
 			lbl_exp.Visible = false; lbl_right.Visible = false;

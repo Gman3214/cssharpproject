@@ -162,5 +162,9 @@ namespace exam
             game.Close();
         }
 
-    }
+		private void txt_email_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

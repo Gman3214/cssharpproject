@@ -51,14 +51,14 @@ namespace exam
         private void pix_game3_Click(object sender, EventArgs e)
         {
             buildrandomarr();
-            gametri game3 = new gametri(this, player, randomwordsgame);
+            gametri game3 = new gametri(this, randomwordsgame, player);
             game3.Show();
         }
 
         private void pix_game4_Click(object sender, EventArgs e)
         {
             buildrandomarr();
-            gamefour game4 = new gamefour(this,player, randomwordsgame, gamewords);
+            gamefour game4 = new gamefour(this,randomwordsgame, player);
             game4.Show();
         }
 

@@ -31,6 +31,9 @@ namespace exam
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
 			this.pnl_sidebar = new System.Windows.Forms.Panel();
+			this.lblscore_ = new System.Windows.Forms.Label();
+			this.lblname_ = new System.Windows.Forms.Label();
+			this.pic_user = new System.Windows.Forms.PictureBox();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.btn_spelling = new System.Windows.Forms.Button();
 			this.btn_add = new System.Windows.Forms.Button();
@@ -41,13 +44,10 @@ namespace exam
 			this.btn_submitmail = new System.Windows.Forms.Button();
 			this.lbl_mail = new System.Windows.Forms.Label();
 			this.txt_email = new System.Windows.Forms.TextBox();
-			this.pic_user = new System.Windows.Forms.PictureBox();
-			this.lblname_ = new System.Windows.Forms.Label();
-			this.lblscore_ = new System.Windows.Forms.Label();
 			this.pnl_sidebar.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pic_user)).BeginInit();
 			this.pnl_childfrm.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pix_start)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pic_user)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pnl_sidebar
@@ -67,6 +67,47 @@ namespace exam
 			this.pnl_sidebar.Name = "pnl_sidebar";
 			this.pnl_sidebar.Size = new System.Drawing.Size(211, 609);
 			this.pnl_sidebar.TabIndex = 0;
+			// 
+			// lblscore_
+			// 
+			this.lblscore_.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lblscore_.AutoSize = true;
+			this.lblscore_.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblscore_.ForeColor = System.Drawing.Color.White;
+			this.lblscore_.Location = new System.Drawing.Point(57, 177);
+			this.lblscore_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblscore_.Name = "lblscore_";
+			this.lblscore_.Size = new System.Drawing.Size(68, 19);
+			this.lblscore_.TabIndex = 6;
+			this.lblscore_.Text = "lbl_score";
+			this.lblscore_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lblscore_.Visible = false;
+			// 
+			// lblname_
+			// 
+			this.lblname_.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lblname_.AutoSize = true;
+			this.lblname_.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblname_.ForeColor = System.Drawing.Color.Yellow;
+			this.lblname_.Location = new System.Drawing.Point(45, 143);
+			this.lblname_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblname_.Name = "lblname_";
+			this.lblname_.Size = new System.Drawing.Size(107, 24);
+			this.lblname_.TabIndex = 5;
+			this.lblname_.Text = "lbl_name";
+			this.lblname_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lblname_.Visible = false;
+			// 
+			// pic_user
+			// 
+			this.pic_user.Image = ((System.Drawing.Image)(resources.GetObject("pic_user.Image")));
+			this.pic_user.Location = new System.Drawing.Point(40, 23);
+			this.pic_user.Name = "pic_user";
+			this.pic_user.Size = new System.Drawing.Size(112, 106);
+			this.pic_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pic_user.TabIndex = 5;
+			this.pic_user.TabStop = false;
+			this.pic_user.Visible = false;
 			// 
 			// panel2
 			// 
@@ -218,47 +259,7 @@ namespace exam
 			this.txt_email.Name = "txt_email";
 			this.txt_email.Size = new System.Drawing.Size(151, 20);
 			this.txt_email.TabIndex = 0;
-			// 
-			// pic_user
-			// 
-			this.pic_user.Image = ((System.Drawing.Image)(resources.GetObject("pic_user.Image")));
-			this.pic_user.Location = new System.Drawing.Point(40, 23);
-			this.pic_user.Name = "pic_user";
-			this.pic_user.Size = new System.Drawing.Size(112, 106);
-			this.pic_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pic_user.TabIndex = 5;
-			this.pic_user.TabStop = false;
-			this.pic_user.Visible = false;
-			// 
-			// lblname_
-			// 
-			this.lblname_.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.lblname_.AutoSize = true;
-			this.lblname_.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblname_.ForeColor = System.Drawing.Color.Yellow;
-			this.lblname_.Location = new System.Drawing.Point(45, 143);
-			this.lblname_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.lblname_.Name = "lblname_";
-			this.lblname_.Size = new System.Drawing.Size(107, 24);
-			this.lblname_.TabIndex = 5;
-			this.lblname_.Text = "lbl_name";
-			this.lblname_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.lblname_.Visible = false;
-			// 
-			// lblscore_
-			// 
-			this.lblscore_.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.lblscore_.AutoSize = true;
-			this.lblscore_.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblscore_.ForeColor = System.Drawing.Color.White;
-			this.lblscore_.Location = new System.Drawing.Point(57, 177);
-			this.lblscore_.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.lblscore_.Name = "lblscore_";
-			this.lblscore_.Size = new System.Drawing.Size(68, 19);
-			this.lblscore_.TabIndex = 6;
-			this.lblscore_.Text = "lbl_score";
-			this.lblscore_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.lblscore_.Visible = false;
+			this.txt_email.TextChanged += new System.EventHandler(this.txt_email_TextChanged);
 			// 
 			// MainScreen
 			// 
@@ -276,10 +277,10 @@ namespace exam
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.pnl_sidebar.ResumeLayout(false);
 			this.pnl_sidebar.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pic_user)).EndInit();
 			this.pnl_childfrm.ResumeLayout(false);
 			this.pnl_childfrm.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pix_start)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pic_user)).EndInit();
 			this.ResumeLayout(false);
 
         }
