@@ -91,7 +91,6 @@ namespace exam
             users.Add(mail,person);  // להוסיף את הפרסון למערך המשתמשים
             return person;
         }
-
         private void btn_games_Click(object sender, EventArgs e)
         {
             openform(new frm_games (gamewords, player,lblscore_));// שולח לפונקציית פתח פורמ את הפורמ של המשחקים
@@ -108,13 +107,11 @@ namespace exam
             pnl_childfrm.Controls.Add(child);
             pnl_childfrm.Tag = child;
             child.BringToFront();
-            child.Show();
-            
+            child.Show();  
         }
 
         private void btn_spelling_Click(object sender, EventArgs e)
         {
-
             openform(new frm_spelling (spellingwords,player));
         }
 
@@ -161,10 +158,5 @@ namespace exam
             }
             game.Close();
         }
-
-		private void txt_email_TextChanged(object sender, EventArgs e)
-		{
-
-		}
 	}
 }

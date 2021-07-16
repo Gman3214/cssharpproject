@@ -109,6 +109,7 @@ namespace exam
                             spellingwords.Add(nw);//  העברת הנתונים שהמתמש רשם לאובייקט והכנסת האובייקט החדש לתוך רשימת המילים לאיות 
                             using (StreamWriter newword = new StreamWriter(@"DATA\SpellWords.txt", true))
                             { newword.WriteLine(st); }
+                            closeadd();
                         }
                         catch (IOException copyError)
                         {
@@ -154,7 +155,8 @@ namespace exam
                             string st = index + ";" + txt_addword.Text + ";" + txt_addword.Text + ".jpg;" + txt_addword.Text + ".wav;" + tmp;//יצירת משפט לכתוב לתוך הקובץ
                             gamewords.Add(nw);//  העברת הנתונים שהמתמש רשם לאובייקט והכנסת האובייקט החדש לתוך רשימת המילים לאיות 
                             using (StreamWriter newword = new StreamWriter(@"DATA\wordImageData.txt", true))
-                            {newword.WriteLine(st);} 
+                            {newword.WriteLine(st);}
+                            closeadd();
                         }
                         catch (IOException copyError)
                         {
@@ -168,5 +170,9 @@ namespace exam
                 }
             }
         }//בדיקה של השדות והעתקת הקבצים והמילה ותקיות המתאימות בשביל התוכנה
+        private void closeadd()
+        {
+            this.Close();
+        }
     }
 }

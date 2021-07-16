@@ -259,7 +259,6 @@ namespace exam
 			this.txt_email.Name = "txt_email";
 			this.txt_email.Size = new System.Drawing.Size(151, 20);
 			this.txt_email.TabIndex = 0;
-			this.txt_email.TextChanged += new System.EventHandler(this.txt_email_TextChanged);
 			// 
 			// MainScreen
 			// 
