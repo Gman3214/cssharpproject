@@ -31,12 +31,10 @@ namespace exam
             lbl_score.Text = "score:"+ points;
             start();
         }
-
 		private void Form3_Load(object sender, EventArgs e)
 		{
 
 		}
-
         private void btn_submit_Click(object sender, EventArgs e)
         {
             if (letterplacment < randomwordsgame[roundnum].word.Length  && timeswrong != 7)
@@ -59,7 +57,7 @@ namespace exam
             {
                 badend();
             }
-        }
+        }//בודק שהשחקן לא הכניס פלות או יותר מאות אחת ואם הוא צודק או לי
         public void start ()
         {
             lbl_gusses.Text = "";
@@ -76,7 +74,7 @@ namespace exam
             }
             wordsound.SoundLocation = @"VOICE/" + randomwordsgame[roundnum].wordwav;
             wordsound.Play();
-        }
+        }//מאתחל כל סבב במשחק
         private void goodend()
         {
             player.chkmypast(randomwordsgame[roundnum]);
@@ -86,7 +84,7 @@ namespace exam
             { btn_next.Text = "end game"; }
             lbl_gusses.Text = "good job you saved him!!!";
             ending();
-        }
+        }//מוסיף ניקוד לשחקן ושולח לסיום
         private void badend()
         {
             player.updatemypast(randomwordsgame[roundnum]);
@@ -96,7 +94,7 @@ namespace exam
             { btn_next.Text = "end game"; }
             lbl_gusses.Text = "you lose,better luck next time :)";
             ending();
-        }
+        }//מוריד ניקוד לשחקן ושולח לסיום
         private void button1_Click(object sender, EventArgs e)
         {
             wordsound.Play();
@@ -105,7 +103,7 @@ namespace exam
         {
             txt_nextl.Clear();
             txt_nextl.Focus();
-        }
+        }//מנקה את מה שהמשתמש כתב ונותן פוקוס לתיבת טקסט
         private void checkletter()
         {
             string tmp = null;
@@ -140,7 +138,6 @@ namespace exam
             letterplacment = 0;
             lbl_score.Text = "score:" + points;
         }//הפונקציה מסיימת את הסבב ומאחלת לסבב הבא
-
         private void btn_next_Click(object sender, EventArgs e)
         {
             pic_hanged.ImageLocation = @"HANGEDMANGAME/lvl" + timeswrong + ".jpg";
@@ -151,6 +148,6 @@ namespace exam
             }
             else
                 start();
-        }
+        }//בודק באיזה סבב אנחנו אם סיימנו סוגר את המשחק אם לא אז ממשיך לסבב הבא
     }
 }
