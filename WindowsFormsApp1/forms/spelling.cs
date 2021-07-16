@@ -277,6 +277,7 @@ namespace exam
             {
                 MessageBox.Show(copyError.Message);
             }
+            
             this.Close();
 		}
 	}
