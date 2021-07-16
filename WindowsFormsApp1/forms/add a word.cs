@@ -172,6 +172,7 @@ namespace exam
         }//בדיקה של השדות והעתקת הקבצים והמילה ותקיות המתאימות בשביל התוכנה
         private void closeadd()
         {
+            MessageBox.Show("the word you entred was added sucsessfully!");
             this.Close();
         }
     }
