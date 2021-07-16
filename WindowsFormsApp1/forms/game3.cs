@@ -27,7 +27,7 @@ namespace exam
             mainform = callingForm as frm_games;
             InitializeComponent();
             this.game_arr = gamewords;
-
+            this.player = player;
             lbl_exp.Text = "We need your help!\nSome words have lost some of their letters.\n" +
                 "Maybe you can help us fix them?";
             btn_str.Text="yes i will";
@@ -49,6 +49,8 @@ namespace exam
         }
         private void startgame()
 		{
+            lbl_score.Visible = false;pic_score.Visible = false;
+            feedbk_lbl.Visible = false;
                 wordapperance();//הצגת המילה למשתמש
             wordpic_.Visible = true;pi_audio.Visible = true;ans_bx.Visible = true;ans_bx.Enabled = true;
             pi_audio.Enabled = true;
@@ -107,16 +109,18 @@ namespace exam
                 {
                     feedbk_lbl.Text = "Great work!\nI knew you can do this";
                     points = points + 10;
-                    feedbk_pic.ImageLocation = @"ICONS\" + "start.png";
+                    feedbk_pic.ImageLocation = @"ICONS\" + "winner.png";
                     player.chkmypast(game_arr[round]);
                 }
                 else//תשובה לא נכונה
                 {
                     points = points - 5;
                     feedbk_lbl.Text = "Dont Give UP\nmabye next time";
-                    feedbk_pic.ImageLocation = @"ICONS\" + "spellbackg.png";
+                    feedbk_pic.ImageLocation = @"ICONS\" + "fail2.png";
                     player.updatemypast(game_arr[round]);
                 }
+            lbl_score.Visible = true;lbl_score.Text = "Your score is:" + points;
+            pic_score.Visible = true;
                 round++;//עדכון סבב
                 btn_end.Visible = true;
                 btn_end.Enabled = true;
@@ -133,9 +137,20 @@ namespace exam
             }
             else
             {
+                MessageBox.Show("GAME OVER\nSee you next time");
                 player.scoreupdate(points);
                 this.Close();// יציאה מהתכנית 
             }
+		}
+
+		private void gametri_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void feedbk_lbl_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
