@@ -23,9 +23,11 @@ namespace exam
         int roundcounter = 0;
         bool useranswer = false;
         Form bcfrm= new Form();
-        public frm_spelling(List<WordWSpelling> spellingwords,User player)
+        int spellingpoints = 0;
+        Label scorelbl = new Label();
+        public frm_spelling(List<WordWSpelling> spellingwords,User player, Label lblscore)
         {
-           
+            this.scorelbl = lblscore;
             using(StreamWriter sw = new StreamWriter(@"OUTPUT\" + player.username + "_wrongspelling.txt", true)) { }
             this.spellingwords = spellingwords;// לקיחת אוסף המילים מטופס הבית 
             this.player = player;// לקיחת הדתא של השחקן שלנו מטופס הבית
@@ -145,8 +147,8 @@ namespace exam
            if(useranswer==true)
 			{
                 pic_great.Visible = true;
-                player.genralscore = player.genralscore + 10;
-                lbl_updatescore.Text = "Your corrnet Score:\n" + player.genralscore;
+                spellingpoints = spellingpoints + 10;
+                lbl_updatescore.Text = "Your corrnet Score:\n" + spellingpoints;
                 lbl_feedback.Visible = true;
                 lbl_feedback.Text = "You doing great! \n keep going!";
                 for (int i = 0; i < getwrongans.Count; i++)
@@ -158,8 +160,8 @@ namespace exam
             else// מקרה שהמשתמש בחר בתשובה לא נכונה
 			{
                 lbl_feedback.Visible = true;
-                player.genralscore = player.genralscore -5;
-                lbl_updatescore.Text = "Your corrnet Score:\n" + player.genralscore;
+                spellingpoints = spellingpoints - 5;
+                lbl_updatescore.Text = "Your corrnet Score:\n" + spellingpoints;
                 lbl_feedback.Text = "oh well, We learn something new every day";
                 pic_failed.Visible = true;
                 getwrongans.Add(randomwordsarr[roundcounter].wordid);// הוספת המילה שהמשתמש טעה בה למאגר מילים שטעה
@@ -277,7 +279,8 @@ namespace exam
             {
                 MessageBox.Show(copyError.Message);
             }
-            
+            player.scoreupdate(spellingpoints);
+            scorelbl.Text = "score:" + player.genralscore;
             this.Close();
 		}
 	}

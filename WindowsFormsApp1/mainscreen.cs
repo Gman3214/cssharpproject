@@ -112,7 +112,7 @@ namespace exam
 
         private void btn_spelling_Click(object sender, EventArgs e)
         {
-            openform(new frm_spelling (spellingwords,player));
+            openform(new frm_spelling (spellingwords,player, lblscore_));
         }
 
         private void btn_add_Click(object sender, EventArgs e)
