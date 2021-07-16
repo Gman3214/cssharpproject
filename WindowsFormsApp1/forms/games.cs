@@ -127,6 +127,7 @@ namespace exam
             scorelbl.Text = "score:" + player.genralscore;
             this.Close();
         }
+
     }
 
 }
