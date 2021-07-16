@@ -13,7 +13,6 @@ namespace exam
         public string wrong1;
         public string wrong2;
         public string wrong3;
-        static int wordwspellingcounter = 130;
         public WordWSpelling(string wrong1, string wrong2, string wrong3, string word, int wordid, string wordwav) : base(word, wordid, wordwav)
         {
             this.wrong1 = wrong1;
